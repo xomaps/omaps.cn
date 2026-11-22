@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- 首页 -->
+  <url>
+    <loc>https://www.omaps.cn/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 产品功能 -->
+  <url>
+    <loc>https://www.omaps.cn/#features</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 操作流程 -->
+  <url>
+    <loc>https://www.omaps.cn/#workflow</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 更多业务场景 -->
+  <url>
+    <loc>https://www.omaps.cn/#scenarios</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 移动端作业 -->
+  <url>
+    <loc>https://www.omaps.cn/#mobile</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 部署方式 -->
+  <url>
+    <loc>https://www.omaps.cn/#deployment</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 价格方案 -->
+  <url>
+    <loc>https://www.omaps.cn/#pricing</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 核心优势 -->
+  <url>
+    <loc>https://www.omaps.cn/#advantages</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 客户案例 -->
+  <url>
+    <loc>https://www.omaps.cn/#cases</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 常见问题 -->
+  <url>
+    <loc>https://www.omaps.cn/#faq</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 联系我们 -->
+  <url>
+    <loc>https://www.omaps.cn/#contact</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 行业洞察列表 -->
+  <url>
+    <loc>https://www.omaps.cn/insights/</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 户外媒体公司的 6 个管理黑洞：撞单、丢照片、报告慢 -->
+  <url>
+    <loc>https://www.omaps.cn/insights/point-management-pitfalls.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Excel 管点位，管到多少规模该上系统？四个临界值 -->
+  <url>
+    <loc>https://www.omaps.cn/insights/when-to-replace-excel.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 一次户外广告投放的四步流程：选点、锁点、派单上刊、完工报告 -->
+  <url>
+    <loc>https://www.omaps.cn/insights/outdoor-advertising-workflow.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 户外广告点位管理软件怎么选？5 个核心功能与 3 个常见坑 -->
+  <url>
+    <loc>https://www.omaps.cn/insights/how-to-choose-point-management-software.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- 每日热点：户外媒体/分众传媒等行业动态（每日自动更新） -->
+  <url>
+    <loc>https://www.omaps.cn/news/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

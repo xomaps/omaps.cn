@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026-11-13 户外媒体每日热点 · 第 1 期 | 麦朴 XOMAPS</title>
+  <meta name="description" content="2026-11-13 户外广告、户外媒体、分众传媒等行业动态汇总，共 12 条，更新于 23:20，点击可查看原文。" />
+  <meta name="keywords" content="户外广告,户外媒体,分众传媒,梯媒,每日热点,行业动态" />
+  <meta name="author" content="麦朴科技" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.omaps.cn/news/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.omaps.cn/news/" />
+  <meta property="og:site_name" content="麦朴 XOMAPS" />
+  <meta property="og:title" content="2026-11-13 户外媒体每日热点 · 第 1 期 | 麦朴 XOMAPS" />
+  <meta property="og:description" content="2026-11-13 户外广告、户外媒体、分众传媒等行业动态汇总，共 12 条，更新于 23:20，点击可查看原文。" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <meta name="theme-color" content="#ff8000" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/article.css" />
+  <style>
+    .tender-table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+    .tender-table th, .tender-table td { padding: 12px 14px; border-bottom: 1px solid #eee; text-align: left; vertical-align: top; }
+    .tender-table th { color: #666; font-weight: 600; background: #fafafa; white-space: nowrap; }
+    .tender-table td a { color: #1a1a1a; text-decoration: none; font-weight: 600; }
+    .tender-table td a:hover { color: var(--primary); }
+    .tender-kind { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px;
+                   background: var(--primary-soft); color: var(--primary); font-weight: 600; }
+    .tender-kind.is-bid { background: #eef7ee; color: #2f8f46; }
+    .tender-cat { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px;
+                  background: #f2f4f7; color: #55606e; }
+    /* 往期日历：默认只显示一个按钮，点开才弹出月历 */
+    .news-cal-row { text-align: center; padding: 26px 0 0; }
+    .news-cal-trigger { display: inline-flex; align-items: center; gap: 9px; padding: 10px 20px;
+                        border: 1px solid var(--border); background: #fff; border-radius: 999px;
+                        font-size: 14px; font-weight: 600; color: #333; cursor: pointer;
+                        transition: color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .news-cal-trigger:hover { color: var(--primary); border-color: var(--primary);
+                              box-shadow: 0 8px 20px rgba(255,128,0,.14); }
+    .news-cal-trigger svg { width: 16px; height: 16px; flex: none; }
+    .news-cal-trigger .hint { font-weight: 400; color: #999; font-size: 13px; }
+
+    .news-cal-modal { position: fixed; inset: 0; z-index: 300; display: flex;
+                      align-items: center; justify-content: center; padding: 20px; }
+    .news-cal-modal[hidden] { display: none; }
+    .news-cal-backdrop { position: absolute; inset: 0; background: rgba(20, 24, 33, .55); }
+    .news-cal-dialog { position: relative; width: 100%; max-width: 380px; background: #fff;
+                       border-radius: 16px; padding: 20px 20px 14px;
+                       box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+                       animation: newsCalIn .18s ease-out; }
+    @keyframes newsCalIn { from { opacity: 0; transform: translateY(10px) scale(.98); }
+                           to { opacity: 1; transform: none; } }
+    body.news-cal-locked { overflow: hidden; }
+    .news-cal-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .news-cal-label { font-size: 14px; font-weight: 600; color: #333; }
+    .news-cal-ctrl { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+    .news-cal-title { font-size: 14px; font-weight: 600; min-width: 84px; text-align: center; }
+    .news-cal-close { width: 28px; height: 28px; border: 0; background: #f4f5f7; border-radius: 50%;
+                      color: #666; font-size: 17px; line-height: 1; cursor: pointer; margin-left: 4px; }
+    .news-cal-close:hover { background: var(--primary-soft); color: var(--primary); }
+    .news-cal-nav { width: 26px; height: 26px; border: 1px solid #e5e5e5; background: #fff;
+                    border-radius: 8px; cursor: pointer; color: #666; font-size: 14px;
+                    line-height: 1; padding: 0; }
+    .news-cal-nav:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+    .news-cal-nav:disabled { opacity: .3; cursor: not-allowed; }
+    .news-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .news-cal-w { text-align: center; font-size: 12px; color: #aaa; padding: 2px 0 6px; }
+    .news-cal-d { display: flex; align-items: center; justify-content: center; height: 34px;
+                  border-radius: 8px; font-size: 13px; color: #c8c8c8; }
+    .news-cal-d.has { color: #333; background: #f5f6f8; font-weight: 600; text-decoration: none; }
+    .news-cal-d.has:hover { background: var(--primary-soft); color: var(--primary); }
+    .news-cal-d.is-current, .news-cal-d.is-current:hover { background: var(--primary); color: #fff; }
+    .news-cal-d.is-empty { background: none; }
+    .news-cal-tip { margin: 12px 0 0; font-size: 12px; color: #aaa; line-height: 1.7; }
+    .news-cal-tip a { color: var(--primary); text-decoration: none; }
+  </style>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?91d1ed7b8e9f57cc6d6af12e7feed6ed";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="麦朴 XOMAPS 首页">
+        <span class="brand-mark">O</span>
+        <span class="brand-name">XOMAPS<em>麦朴</em></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="../index.html#features">产品功能</a>
+        <a href="../index.html#workflow">操作流程</a>
+        <a href="../index.html#deployment">部署方式</a>
+        <a href="../index.html#pricing">价格方案</a>
+        <a href="../index.html#faq">常见问题</a>
+        <a href="../insights/index.html">行业洞察</a>
+        <a href="./index.html" aria-current="page">每日热点</a>
+        <a href="../index.html#contact">联系我们</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="https://saas.omaps.cn/#/login">登录系统</a>
+        <a class="btn btn-primary" href="https://saas.omaps.cn/#/media-entry">媒体入驻</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">&#9776;</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-badge">每日热点 <span class="en">Daily News</span></span>
+        <h1>2026-11-13 户外媒体每日热点</h1>
+        <p>自动汇集全网与户外广告、户外媒体、分众传媒相关的最新资讯，每日一篇，当日多次运行只更新本篇。</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding:0;">
+      <div class="container">
+        <div class="news-cal-row">
+          <button type="button" class="news-cal-trigger" id="news-cal-open" aria-haspopup="dialog" aria-controls="news-cal-modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+            往期日历
+            <span class="hint">共 2 期</span>
+          </button>
+        </div>
+        <noscript><style>#news-cal-open{display:none}</style>
+          <p class="news-cal-tip" style="text-align:center;">最近 12 期：<a href="./index.html">2026-11-13</a> · <a href="./archive-2026-11-10.html">2026-11-10</a></p></noscript>
+      </div>
+    </section>
+    <div class="news-cal-modal" id="news-cal-modal" hidden role="dialog" aria-modal="true" aria-labelledby="news-cal-label">
+      <div class="news-cal-backdrop" data-close></div>
+      <div class="news-cal-dialog" role="document">
+        <div class="news-cal-head">
+          <span class="news-cal-label" id="news-cal-label">往期日历</span>
+          <div class="news-cal-ctrl">
+            <button type="button" id="news-cal-prev" class="news-cal-nav" aria-label="上一个月">&#8249;</button>
+            <span class="news-cal-title" id="news-cal-title"></span>
+            <button type="button" id="news-cal-next" class="news-cal-nav" aria-label="下一个月">&#8250;</button>
+          </div>
+          <button type="button" class="news-cal-close" id="news-cal-close" aria-label="关闭日历">&times;</button>
+        </div>
+        <div class="news-cal-grid" id="news-cal-grid"></div>
+        <p class="news-cal-tip">深色日期为已发布的当期热点，点击即可查看；仅保留最近 90 天。</p>
+      </div>
+    </div>
+    <script>window.NEWS_CAL={"2026-11-10": "./archive-2026-11-10.html", "2026-11-13": "./index.html"};window.NEWS_CUR="2026-11-13";</script>
+  <script>
+  (function () {
+    var CAL = window.NEWS_CAL || {}, CUR = window.NEWS_CUR || "";
+    var keys = Object.keys(CAL).sort();
+    var modal = document.getElementById("news-cal-modal");
+    var openBtn = document.getElementById("news-cal-open");
+    if (!modal || !openBtn) return;
+    var grid = document.getElementById("news-cal-grid");
+    var title = document.getElementById("news-cal-title");
+    var prev = document.getElementById("news-cal-prev");
+    var next = document.getElementById("news-cal-next");
+    var closeBtn = document.getElementById("news-cal-close");
+    if (!grid || !title || !prev || !next || !closeBtn) return;
+    if (!keys.length) { openBtn.parentNode.style.display = "none"; return; }
+    var minM = keys[0].slice(0, 7), maxM = keys[keys.length - 1].slice(0, 7);
+    var state = (CUR || keys[keys.length - 1]).slice(0, 7);
+    var lastFocus = null;
+
+    function pad(n) { return n < 10 ? "0" + n : "" + n; }
+    function shift(m, delta) {
+      var y = +m.slice(0, 4), mo = +m.slice(5, 7) + delta;
+      if (mo < 1) { mo = 12; y -= 1; }
+      if (mo > 12) { mo = 1; y += 1; }
+      return y + "-" + pad(mo);
+    }
+    function render() {
+      var y = +state.slice(0, 4), mo = +state.slice(5, 7);
+      title.textContent = y + " 年 " + mo + " 月";
+      var lead = (new Date(y, mo - 1, 1).getDay() + 6) % 7;   /* 周一为首列 */
+      var days = new Date(y, mo, 0).getDate();
+      var html = "";
+      ["一", "二", "三", "四", "五", "六", "日"].forEach(function (w) {
+        html += '<span class="news-cal-w">' + w + "</span>";
+      });
+      for (var i = 0; i < lead; i++) html += '<span class="news-cal-d is-empty"></span>';
+      for (var d = 1; d <= days; d++) {
+        var ds = state + "-" + pad(d), href = CAL[ds];
+        var cls = "news-cal-d" + (href ? " has" : "") + (ds === CUR ? " is-current" : "");
+        html += href
+          ? '<a class="' + cls + '" href="' + href + '" title="查看 ' + ds + ' 热点">' + d + "</a>"
+          : '<span class="' + cls + '">' + d + "</span>";
+      }
+      grid.innerHTML = html;
+      prev.disabled = state <= minM;
+      next.disabled = state >= maxM;
+    }
+    function open() {
+      lastFocus = document.activeElement;
+      state = (CUR || keys[keys.length - 1]).slice(0, 7);
+      render();
+      modal.hidden = false;
+      document.body.classList.add("news-cal-locked");
+      closeBtn.focus();
+    }
+    function close() {
+      modal.hidden = true;
+      document.body.classList.remove("news-cal-locked");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    openBtn.addEventListener("click", open);
+    closeBtn.addEventListener("click", close);
+    modal.addEventListener("click", function (e) {
+      if (e.target.hasAttribute("data-close")) close();      /* 点遮罩关闭 */
+    });
+    document.addEventListener("keydown", function (e) {
+      if ((e.key === "Escape" || e.key === "Esc") && !modal.hidden) close();
+    });
+    prev.addEventListener("click", function () { state = shift(state, -1); render(); });
+    next.addEventListener("click", function () { state = shift(state, 1); render(); });
+  })();
+  </script>
+
+
+    <section class="section">
+      <div class="container">
+        <p style="color:#999;font-size:14px;margin:0 0 18px;">本期：2026-11-13　资讯 12 条（周边近 3 天 / 核心近 7 天，已去重）　·　发布于 23:20</p>
+<h3 style="margin:6px 0 16px;font-size:18px;">核心动态 <span style="color:#999;font-size:13px;font-weight:400;">户外媒体 · 梯媒 · 分众传媒</span></h3>
+<div class="post-list" style="margin-bottom:26px;">
+<a class="post-card" href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1794583231&amp;ver=7086&amp;signature=KJGxyf9EEc5oQ37oIAm272Z-bMFJJr0H7qZi2uvGgQiGfshKYHfHGCQpz3kTwBiOZ195VtcPIKJovNPQ6vLSKUqWO40hfAFB9H4U8cOCbYbCiyTLo7KIH0VQ2U0txGR7&amp;new=1" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">公众号 · 最爱大北京</span>
+            <h2><span style="display:inline-block;background:var(--primary);color:#fff;font-size:12px;border-radius:4px;padding:1px 7px;margin-right:8px;vertical-align:2px;">TOP1</span>北京一张双11电梯广告,引出长期用药难题:药品优惠不该只在大促</h2>
+            <p class="post-card-desc">01北京网友晒出一张电梯广告天南海北的网友聊开了这两天,小编在网上看到有北京网友晒出了一张电梯里的双11广告.本来是部分北...</p>
+            <div class="post-meta"><time datetime="2026-11-10">2026-11-10 10:03</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+</div>
+<h3 style="margin:6px 0 16px;font-size:18px;">行业周边 <span style="color:#999;font-size:13px;font-weight:400;">广告与传媒行业动态</span></h3>
+<div class="post-list" style="margin-bottom:26px;">
+<a class="post-card" href="https://www.adquan.com/article/365474" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">广告门</span>
+            <h2><span style="display:inline-block;background:var(--primary);color:#fff;font-size:12px;border-radius:4px;padding:1px 7px;margin-right:8px;vertical-align:2px;">TOP2</span>利欧数字迎来“专业数字员工”：智能体主动“走进”广告工作流</h2>
+            <p class="post-card-desc">利欧数字 CubSwarm 接入飞书与LEOAIAD，参与会议、简报和创意协作，探索广告人机共事。</p>
+            <div class="post-meta"><time datetime="2026-11-13">2026-11-13</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="https://www.adquan.com/article/365457" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">广告门</span>
+            <h2><span style="display:inline-block;background:var(--primary);color:#fff;font-size:12px;border-radius:4px;padding:1px 7px;margin-right:8px;vertical-align:2px;">TOP3</span>AI正在改变消费决策，品牌竞争迎来新变量｜宏盟媒体中国在中国国际广告节发布重磅研究</h2>
+            <p class="post-card-desc">宏盟媒体中国发布AI消费研究：AI改变决策入口，品牌需建“人的记忆+AI理解”双引擎。</p>
+            <div class="post-meta"><time datetime="2026-11-13">2026-11-13</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="http://www.chinanews.com.cn/fz/2026/11-12/10730924.shtml" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">中国新闻网</span>
+            <h2>涉巧克力广告宣扬错误婚恋观等 12起违法广告典型案例公布</h2>
+            <p class="post-card-desc">2026年，长三角三省一市市场监管部门深入贯彻落实长三角一体化发展战略，积极统筹广告监管和产业发展工作，聚焦互联网广告生态治理、广告中提示性用语监管、户外广告导向问题专项治理等重点工作，持续加大广告监管执法力度，依法查处了一批虚假违法广告案件。</p>
+            <div class="post-meta"><time datetime="2026-11-12">2026-11-12 17:02</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="https://finance.eastmoney.com/a/202611123929404879.html" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">澎湃新闻</span>
+            <h2>趁男友不在收暧昧对象礼物？德芙广告宣扬错误婚恋观被罚80万元</h2>
+            <p class="post-card-desc">2026年，长三角三省一市市场监管部门深入贯彻落实长三角一体化发展战略，积极统筹广告监管和产业发展工作，聚焦互联网广告生态治理、广告中提示性用语监管、户外广告导向问题专项治理等重点工作，持续加大广告监管执法力度，依法查处了一批虚假违法广告案件。 据“上海市场监管”微信公众号11</p>
+            <div class="post-meta"><time datetime="2026-11-12">2026-11-12 14:02</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="https://finance.eastmoney.com/a/202611123929976487.html" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">北京商报</span>
+            <h2>七夕争议广告处罚落地，德芙代运营方被罚80万元</h2>
+            <p class="post-card-desc">北京商报讯（记者郭秀娟王悦彤）德芙七夕争议广告，有了监管处罚结果。11月12日，“上海市场监管”官微发布长三角地区市场监管部门联合公布违法广告典型案例。 其中，上海宗正食品有限公司作为快手平台“德芙官方旗舰店”的运营主体，于2026年8月为推销“德芙巧克力七彩缤纷礼盒”，自行设计</p>
+            <div class="post-meta"><time datetime="2026-11-12">2026-11-12 20:58</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="https://finance.eastmoney.com/a/202611123929811221.html" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">21世纪经济报道</span>
+            <h2>把“不忠”包装成“甜蜜” 德芙争议广告招来80万元罚单</h2>
+            <p class="post-card-desc">21世纪经济报道记者万倩倩 “德芙广告文案翻车”事件迎来后续，涉事旗舰店运营主体被罚80万元。 11月12日，“上海市场监管”微信公众号公布了长三角违法广告典型案例，其中包括德芙此前一则争议广告的调查详情及处罚结果。 通报显示，上海宗正食品有限公司作为快手平台“德芙官方旗舰店</p>
+            <div class="post-meta"><time datetime="2026-11-12">2026-11-12 19:05</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="https://finance.eastmoney.com/a/202611123929812033.html" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">21世纪经济报道</span>
+            <h2>冲上热搜！德芙广告翻车，被罚80万元</h2>
+            <p class="post-card-desc">“德芙广告翻车”，最新后续来了！目前话题冲上了热搜前列。 今年8月，有网友发文称，德芙官方旗舰店的一则短视频文案用语暧昧、三观不正。 8月25日深夜，德芙发布致歉声明称，经核查，该短视频由第三方店铺运营团队创作并发布，未严格执行品牌方的内容审核流程。 11月12日，“上海市场监管</p>
+            <div class="post-meta"><time datetime="2026-11-12">2026-11-12 18:49</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="https://finance.eastmoney.com/a/202611123929721614.html" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">财联社</span>
+            <h2>OpenAI与Aleph合作 将ChatGPT广告扩展至44个国家</h2>
+            <p class="post-card-desc">OpenAI与Aleph合作，将ChatGPT广告扩展至44个国家。</p>
+            <div class="post-meta"><time datetime="2026-11-12">2026-11-12 18:05</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="https://finance.eastmoney.com/a/202611123929427690.html" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">南方都市报</span>
+            <h2>德芙“跟暧昧对象分享”广告风波续：旗舰店运营方被罚80万</h2>
+            <p class="post-card-desc">今年8月，德芙官方旗舰店发布一则广告视频，内容为“趁男朋友不在跟暧昧对象分享德芙七彩礼盒”，引发争议。11月12日，南都N视频记者从上海市普陀区市场监管局获悉，涉事旗舰店第三方运营主体上海宗正食品有限公司宣扬错误婚恋观，违背社会良好风尚。普陀区市场监管局对其作出罚款80万元的行政处罚</p>
+            <div class="post-meta"><time datetime="2026-11-12">2026-11-12 14:38</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="https://finance.eastmoney.com/a/202611123929425620.html" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">界面新闻</span>
+            <h2>德芙快手官旗运营主体被罚80万，广告宣扬错误婚恋观</h2>
+            <p class="post-card-desc">11月12日，长三角地区市场监管部门联合公布违法广告典型案例。其中包括上海市普陀区市场监管局查处上海宗正食品有限公司违法广告案。 经查，上海宗正食品有限公司作为快手平台“德芙官方旗舰店”的运营主体，于2026年8月为推销“德芙巧克力七彩缤纷礼盒”，自行设计、制作并在店铺内发布含有</p>
+            <div class="post-meta"><time datetime="2026-11-12">2026-11-12 14:24</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+<a class="post-card" href="https://finance.eastmoney.com/a/202611123928802743.html" target="_blank" rel="noopener">
+          <div class="post-card-body">
+            <span class="tag">财联社</span>
+            <h2>谷歌更新了广告政策 禁止使用AI生成的公众人物形象模仿广告</h2>
+            <p class="post-card-desc">谷歌更新了广告政策，禁止使用AI生成的公众人物形象模仿广告。</p>
+            <div class="post-meta"><time datetime="2026-11-12">2026-11-12 00:59</time><span class="read-more">查看原文 &rarr;</span></div>
+          </div>
+        </a>
+</div>
+      </div>
+    </section>
+
+<section class="section" style="border-top:1px solid #eee;">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-badge">招投标 <span class="en">Bidding</span></span>
+      <h2>线下广告投放招投标</h2>
+      <p>近 10 天中国政府采购网、中国移动采购与招标网发布的户外广告、广告位、媒体投放相关采购与中选公告，点击项目名可查看原文。</p>
+    </div>
+    <p style="color:#999;font-size:14px;margin:0;">本期未取到符合条件的公告（数据源按 IP 限频时会自动跳过，次日恢复）。可直接到 <a href="http://search.ccgp.gov.cn/" target="_blank" rel="noopener" style="color:var(--primary);">中国政府采购网</a> 或 <a href="https://b2b.10086.cn/" target="_blank" rel="noopener" style="color:var(--primary);">中国移动采购与招标网</a> 查看最新公告。</p>
+  </div>
+</section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 麦朴科技 · XOMAPS 户外媒体点位管理系统</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

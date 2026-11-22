@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>信朴 XOMAPS · 户外媒体点位管理系统</title>
+  <meta name="title" content="信朴 XOMAPS · 户外媒体点位管理系统" />
+  <meta name="description" content="信朴 XOMAPS 户外媒体点位管理系统：以地图承载点位落位、空位查找与片区圈选，覆盖点位资源、订单投放、派单上刊、完工报告全流程；内置客户商机与销售/采购合同、请款到款开票提成对账、点位覆盖率报表与 AI 销售助理；移动端支持断网拍照、联网补传，静态户外与灯箱、候车亭、道闸、墙体等形态均可管理，支持本地部署与 SaaS 订阅。" />
+  <meta name="keywords" content="户外媒体管理,户外媒体管理系统,户外媒体管理软件,户外广告,户外广告管理系统,户外广告管理平台,广告管理系统,广告订单管理系统,广告安装派单管理后台,点位管理,点位管理系统,点位地图,媒体资源管理,地图选点,地图点位管理,排期管理,外勤巡检,离线上刊,批量导入点位,订单管理,派单上刊,完工报告,客户管理,商机管理,合同管理,请款管理,提成核算,发票管理,客户对账,点位使用率,AI销售助理,开放API,私有化部署,OMAPS源码,XOMAPS,omaps,信朴,麦扑" />
+  <meta name="author" content="信朴科技" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.omaps.cn/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.omaps.cn/" />
+  <meta property="og:site_name" content="信朴 XOMAPS" />
+  <meta property="og:title" content="信朴 XOMAPS · 户外媒体点位管理系统" />
+  <meta property="og:description" content="点位资源、订单投放、派单上刊、完工报告全流程数字化，含客户商机合同、财务结算提成、经营报表与 AI 销售助理。" />
+  <meta property="og:image" content="https://www.omaps.cn/images/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="信朴 XOMAPS · 户外媒体点位管理系统" />
+  <meta name="twitter:description" content="点位资源、订单投放、派单上刊、完工报告全流程数字化，含客户商机合同、财务结算提成、经营报表与 AI 销售助理。" />
+  <meta name="twitter:image" content="https://www.omaps.cn/images/twitter-cover.jpg" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+  <link rel="manifest" href="./site.webmanifest" />
+  <meta name="theme-color" content="#ff8000" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <noscript><style>.faq-a { display: block !important; }</style></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "信朴 XOMAPS 户外媒体点位管理系统",
+    "alternateName": ["XOMAPS", "Outdoor Media Asset Planning System"],
+    "url": "https://www.omaps.cn",
+    "description": "户外媒体点位资源、订单投放、派单上刊、完工报告全流程数字化管理平台，支持本地部署与 SaaS 订阅。",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CNY"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "信朴科技",
+      "url": "https://www.omaps.cn",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "广州市天河区金穗路1号邦华广场16楼",
+        "addressLocality": "广州市",
+        "addressRegion": "广东省",
+        "postalCode": "510623",
+        "addressCountry": "CN"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "我们做的是电梯框架 / 灯箱 / 车身 / 大牌，XOMAPS 都支持吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "支持。系统以点位为核心抽象，每个点位可挂位置、媒体类型、规格、所属小区或商圈、当前状态等属性。电梯框架、社区灯箱、道闸、候车亭、公交车身、户外大牌都可以按自有分类体系录入，一家公司同时经营多种媒体类型也没有冲突。" }
+      },
+      {
+        "@type": "Question",
+        "name": "现在点位和排期都在 Excel 里，能直接导入吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "可以。系统提供标准导入模板，点位、客户、历史订单与排期都能批量导入。导入前会做校验，重复的点位编码、冲突的排期会先提示，不会把脏数据写进系统。历史数据量较大的客户，实施阶段会协助清洗后再导入。" }
+      },
+      {
+        "@type": "Question",
+        "name": "上刊师傅年纪偏大、不太会用智能手机，推得动吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "可以。上刊人员用微信小程序即可，不需要下载安装 App；任务以列表形式下发，点进去就是签到、拍照、提交三步，现场操作平均 1 分钟内完成。上线首周提供现场或远程带教，确保每位师傅独立完成一次完整上刊。" }
+      },
+      {
+        "@type": "Question",
+        "name": "小程序和独立 App 必须都用吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "不必二选一，也不必都用。日常上刊用小程序最轻；需要离线作业、大批量拍照上传或更完整的功能时用独立 App。两端共用同一份数据，后台看到的结果完全一致。" }
+      },
+      {
+        "@type": "Question",
+        "name": "完工报告能按我们自己的模板出吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "能。报告模板可配置封面、版式、点位照片排布方式与说明字段，一次点击生成 PPT 报告，同时打包导出原图压缩包，直接发给客户。模板可以按客户或项目分别保存，下次复用。" }
+      },
+      {
+        "@type": "Question",
+        "name": "SaaS 版和本地部署版的功能有差别吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "核心业务功能一致，差别在交付形态。SaaS 版开箱即用、自动升级、按年订阅；本地部署版部署在自有服务器上，支持深度定制与二次开发，按授权加年度维保计费。选哪个主要取决于数据合规要求，而不是功能多少。" }
+      },
+      {
+        "@type": "Question",
+        "name": "点位数据和客户资料放在 SaaS 上安全吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "传输全程 HTTPS，存储层做多租户隔离、敏感字段加密，按角色控制数据可见范围，关键操作留有审计日志。若合规要求数据不能出内网，可选本地部署版，点位数据完全留在自有服务器。" }
+      },
+      {
+        "@type": "Question",
+        "name": "从签约到真正用起来要多久？",
+        "acceptedAnswer": { "@type": "Answer", "text": "SaaS 版通常 1 到 2 周完成初始化、数据导入与培训，即可投入试用。本地部署版需要准备服务器、实施部署、迁移数据，一般 4 到 8 周，具体取决于数据量级与定制范围。签合同前会提供明确的实施排期。" }
+      },
+      {
+        "@type": "Question",
+        "name": "我们的业务流程比较特殊，系统能改吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "标准流程选点、锁点、派单上刊、完工报告覆盖绝大多数场景。审批流、自定义字段、报表口径可以按企业习惯配置；超出配置范围的个性化需求，本地部署版支持二次开发对接。" }
+      },
+      {
+        "@type": "Question",
+        "name": "怎么收费？有隐形费用吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "按席位数、点位规模与启用模块组合计价：SaaS 按年订阅，本地部署为一次授权加年度维保。报价前先做一轮业务调研，出方案和报价单，列明包含的实施、培训与维保内容，不做隐形收费。" }
+      },
+      {
+        "@type": "Question",
+        "name": "地图只是展示，还是能在地图上直接操作？",
+        "acceptedAnswer": { "@type": "Answer", "text": "能操作。点位按经纬度在地图上落位，地图视图做聚合展示；可用点位按区域、规格、档期筛选后在地图上高亮，还可以框选一个片区，直接查看范围内的小区数量与点位数量。点位包内的点位也能成组上地图，给客户讲方案时不必只对着编号表。" }
+      },
+      {
+        "@type": "Question",
+        "name": "现场没信号、地下车库拍不了照怎么办？",
+        "acceptedAnswer": { "@type": "Answer", "text": "断网可以作业。照片先暂存在手机本地并标记为待上传，网络恢复后自动补传；上传失败的会单独标记，可一键重试，不会因为没信号丢掉当期照片。" }
+      },
+      {
+        "@type": "Question",
+        "name": "LED 数字屏、程序化投放支持吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "XOMAPS 的核心是静态平面媒体，如大牌、候车亭、灯箱、道闸、墙体这类需要现场张贴、拍照留证的形态。LED 数字屏纳入同一套点位、排期与订单体系，并支持把全量轮播清单按版本整体下发到租户自接的播控系统（播控衔接层）；但系统不做播控引擎与屏体播放控制，屏和播控账号仍在租户手里，播放凭证现阶段以人工验收兜底，也不含 SSP / DSP 程序化交易对接。以程序化售卖为主营的公司，仍不适合把 XOMAPS 当作主系统。" }
+      },
+      {
+        "@type": "Question",
+        "name": "财务和提成能做到什么程度？",
+        "acceptedAnswer": { "@type": "Answer", "text": "不只对账。系统包含请款（带到期日与逾期标记）、到款登记、划拨审核、发票管理、提成核算、客户对账、会计期间开闭与年度结转，以及按客户的欠款风控视图。提成按划拨金额乘提成比例自动计算，关联合同与销售人员，到款后结算。边界是单级比例提成，多级阶梯、跨项目拆账、集团合并报表属于定制范围，可通过开放接口与原有财务系统对接。" }
+      },
+      {
+        "@type": "Question",
+        "name": "里面有 AI 吗？能做什么、不能做什么？",
+        "acceptedAnswer": { "@type": "Answer", "text": "内置 Copilot 销售助理（基于 AgentScope），检索自有库中的点位、排期与单价。可查询可用点位、按预算拆点位组合、生成投放方案、把拜访内容转成活动记录、汇总周报月报。不做图像质检，照片是否错刊、遮挡、翻拍仍由时间地点水印、GPS 定位与人工复核判定。" }
+      },
+      {
+        "@type": "Question",
+        "name": "能和现有的财务、OA 系统对接吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "可以。系统提供标准 OpenAPI 接口，可按需对接财务、OA、ERP 或自建中台；同时提供 MCP 协议接入，AI 客户端可直接调用点位、排期等查询能力。本地部署版可按企业内网规范调整接口与鉴权方式。" }
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?91d1ed7b8e9f57cc6d6af12e7feed6ed";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="信朴 XOMAPS 首页">
+        <span class="brand-mark">O</span>
+        <span class="brand-name">XOMAPS<em>信朴</em></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="#features">产品功能</a>
+        <a href="#biz">业务财务</a>
+        <a href="#ai">AI 助理</a>
+        <a href="#pricing">价格方案</a>
+        <a href="https://blog.omaps.cn" target="_blank" rel="noopener">技术博客</a>
+        <a href="#faq">常见问题</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="https://saas.omaps.cn/#/login">登录系统</a>
+        <a class="btn btn-primary" href="https://saas.omaps.cn/#/media-entry">媒体入驻</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-copy">
+          <div class="hero-badge"><span class="badge-dot"></span>户外媒体数字化管理平台</div>
+          <h1>让户外媒体管理<br /><span class="gradient-text">更简单、更高效</span></h1>
+          <p class="en-tagline">OOH Media Asset Management</p>
+          <p class="hero-desc">XOMAPS 覆盖点位资源、订单投放、派单上刊、完工报告全流程，PC 管理后台与移动端现场作业双端协同，助力户外媒体企业数字化升级。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="#contact">预约演示</a>
+            <a class="btn btn-outline btn-lg" href="#features">了解功能</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item"><strong data-count="4">0</strong><span>步走完一次投放</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat-item"><strong data-count="2">0</strong><span>端协同作业</span></div>
+            <div class="stat-divider"></div>
+            <div class="stat-item"><strong data-count="2">0</strong><span>种部署方式</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 每日热点（内容由 jobs/news_digest.py 每日自动更新，请勿手改 DAILY-NEWS 标记块内内容） -->
+    <section class="section" id="daily-news">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">每日热点 <span class="en">Daily News</span></span>
+          <h2>户外媒体行业每日动态</h2>
+          <p>自动汇集全网与户外广告、户外媒体、分众传媒相关的行业资讯，每日更新，点击标题可查看原文。</p>
+        </div>
+        <!-- DAILY-NEWS:BEGIN -->
+<ul style="list-style:none;padding:0;margin:0;display:grid;gap:12px;">
+          <li style="border:1px solid #eee;border-radius:12px;padding:14px 20px;"><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1794583231&amp;ver=7086&amp;signature=KJGxyf9EEc5oQ37oIAm272Z-bMFJJr0H7qZi2uvGgQiGfshKYHfHGCQpz3kTwBiOZ195VtcPIKJovNPQ6vLSKUqWO40hfAFB9H4U8cOCbYbCiyTLo7KIH0VQ2U0txGR7&amp;new=1" target="_blank" rel="noopener" style="font-weight:600;color:#1a1a1a;text-decoration:none;">北京一张双11电梯广告,引出长期用药难题:药品优惠不该只在大促</a><span style="color:#999;font-size:13px;margin-left:10px;white-space:nowrap;">公众号 · 最爱大北京 · 2026-11-10 10:03</span><p style="margin:6px 0 0;color:#666;font-size:14px;">01北京网友晒出一张电梯广告天南海北的网友聊开了这两天,小编在网上看到有北京网友晒出了一张电梯里的双11广告.本来是部分北...</p></li>
+          <li style="border:1px solid #eee;border-radius:12px;padding:14px 20px;"><a href="https://www.adquan.com/article/365474" target="_blank" rel="noopener" style="font-weight:600;color:#1a1a1a;text-decoration:none;">利欧数字迎来“专业数字员工”：智能体主动“走进”广告工作流</a><span style="color:#999;font-size:13px;margin-left:10px;white-space:nowrap;">广告门 · 2026-11-13</span><p style="margin:6px 0 0;color:#666;font-size:14px;">利欧数字 CubSwarm 接入飞书与LEOAIAD，参与会议、简报和创意协作，探索广告人机共事。</p></li>
+          <li style="border:1px solid #eee;border-radius:12px;padding:14px 20px;"><a href="https://www.adquan.com/article/365457" target="_blank" rel="noopener" style="font-weight:600;color:#1a1a1a;text-decoration:none;">AI正在改变消费决策，品牌竞争迎来新变量｜宏盟媒体中国在中国国际广告节发布重磅研究</a><span style="color:#999;font-size:13px;margin-left:10px;white-space:nowrap;">广告门 · 2026-11-13</span><p style="margin:6px 0 0;color:#666;font-size:14px;">宏盟媒体中国发布AI消费研究：AI改变决策入口，品牌需建“人的记忆+AI理解”双引擎。</p></li>
+          <li style="border:1px solid #eee;border-radius:12px;padding:14px 20px;"><a href="http://www.chinanews.com.cn/fz/2026/11-12/10730924.shtml" target="_blank" rel="noopener" style="font-weight:600;color:#1a1a1a;text-decoration:none;">涉巧克力广告宣扬错误婚恋观等 12起违法广告典型案例公布</a><span style="color:#999;font-size:13px;margin-left:10px;white-space:nowrap;">中国新闻网 · 2026-11-12 17:02</span><p style="margin:6px 0 0;color:#666;font-size:14px;">2026年，长三角三省一市市场监管部门深入贯彻落实长三角一体化发展战略，积极统筹广告监管和产业发展工作，聚焦互联网广告生态治理、广告中提示性用语监管、户外广告导向问题专项治理等重点工作，持续加大广告监管执法力度，依法查处了一批虚假违法广告案件。</p></li>
+          <li style="border:1px solid #eee;border-radius:12px;padding:14px 20px;"><a href="https://finance.eastmoney.com/a/202611123929404879.html" target="_blank" rel="noopener" style="font-weight:600;color:#1a1a1a;text-decoration:none;">趁男友不在收暧昧对象礼物？德芙广告宣扬错误婚恋观被罚80万元</a><span style="color:#999;font-size:13px;margin-left:10px;white-space:nowrap;">澎湃新闻 · 2026-11-12 14:02</span><p style="margin:6px 0 0;color:#666;font-size:14px;">2026年，长三角三省一市市场监管部门深入贯彻落实长三角一体化发展战略，积极统筹广告监管和产业发展工作，聚焦互联网广告生态治理、广告中提示性用语监管、户外广告导向问题专项治理等重点工作，持续加大广告监管执法力度，依法查处了一批虚假违法广告案件。 据“上海市场监管”微信公众号11</p></li>
+        </ul>
+          <p style="margin:16px 0 0;"><a href="./news/index.html" style="color:var(--primary);font-weight:600;text-decoration:none;">查看全部 2026-11-13 期热点 →</a></p>
+          <!-- DAILY-NEWS:END -->
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">产品功能 <span class="en">Features</span></span>
+          <h2>一套系统，管好户外媒体全业务</h2>
+          <p>覆盖选点、锁点、派单上刊、完工报告全流程，关键环节全部数字化、可视化。</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-media spot-carousel">
+              <div class="spot-slides">
+                <img class="spot-slide" src="./images/pc-spots-available.jpeg" alt="空位选点" loading="lazy" />
+                <img class="spot-slide" src="./images/pc-packet-batch.jpeg" alt="批量选点" loading="lazy" />
+                <img class="spot-slide" src="./images/pc-map.jpeg" alt="地图选点" loading="lazy" />
+              </div>
+              <div class="spot-dots" role="tablist" aria-label="选点方式轮播">
+                <button class="spot-dot active" role="tab" aria-selected="true" aria-label="空位选点"></button>
+                <button class="spot-dot" role="tab" aria-selected="false" aria-label="批量选点"></button>
+                <button class="spot-dot" role="tab" aria-selected="false" aria-label="地图选点"></button>
+              </div>
+            </div>
+            <div class="feature-body">
+              <span class="step-num">01</span>
+              <h3>选点</h3>
+              <p>空位选点、批量选点、地图选点，多方式快速锁定目标点位。</p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-media"><img src="./images/pc-order.jpeg" alt="订单锁点" loading="lazy" /></div>
+            <div class="feature-body">
+              <span class="step-num">02</span>
+              <h3>锁点</h3>
+              <p>创建订单与投放，点位排期锁定，防止资源冲突。</p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-media"><img src="./images/pc-delivery.jpeg" alt="派单上刊" loading="lazy" /></div>
+            <div class="feature-body">
+              <span class="step-num">03</span>
+              <h3>派单上刊</h3>
+              <p>上传画面、设置派单、指派上刊人员，任务实时推送。</p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-media"><img src="./images/pc-report.jpeg" alt="完工报告" loading="lazy" /></div>
+            <div class="feature-body">
+              <span class="step-num">04</span>
+              <h3>完工报告</h3>
+              <p>自动生成完工报告与 PPT 报告，打包下载原图，提升客户满意度。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section class="section map-section" id="map">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">地图管控 <span class="en">Map</span></span>
+          <h2>点位落在地图上，资源全貌一眼看清</h2>
+          <p>大多数点位台账只给你一张表。XOMAPS 把点位落在地图上，空位、片区、点位包、现场实景都在同一个视图里——这是它和其他点位管理系统最直接的差别。</p>
+        </div>
+
+        <div class="mobile-grid">
+          <div class="mobile-copy">
+            <ul class="mobile-features">
+              <li><strong>地图打点落位</strong> — 每条点位按经纬度落到地图，编码、位置、规格、单价一处录入，地图本身就是台账</li>
+              <li><strong>空位按条件高亮</strong> — 按区域、规格、档期筛出可用点位，空置资源在地图上直接看，不用回表核对</li>
+              <li><strong>框选片区看容量</strong> — 在地图上圈一个范围，即时得到范围内的小区数与点位数，客户问"这个片区还有多少位置"当场能答</li>
+              <li><strong>点位包成组上地图</strong> — 一个资源包里的点位成组展示，给客户讲方案时是分布图，不是一串编号</li>
+              <li><strong>实景照片挂到点位</strong> — 每个点位可挂多张现场实景图并按点位归集，销售、施工、客户看的是同一份现场</li>
+              <li><strong>Excel 批量建档</strong> — 点位、编号变更都支持模板导入，导入前先预览校验，编码重复与字段缺失先提示，确认后才写库</li>
+            </ul>
+            <div class="map-cta">
+              <a class="btn btn-outline" href="#contact">预约地图演示</a>
+            </div>
+          </div>
+
+          <div class="mobile-visual map-visual">
+            <div class="browser-frame">
+              <div class="browser-bar"><span></span><span></span><span></span><em>点位地图</em></div>
+              <div class="browser-body">
+                <img src="./images/pc-map.jpeg" alt="XOMAPS 点位地图：点位在地图上落位，按区域查看资源分布" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="section alt" id="workflow">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">操作流程 <span class="en">Workflow</span></span>
+          <h2>四步完成广告点位投放</h2>
+          <p>标准化流程，让每个环节清晰可控、责任到人。</p>
+        </div>
+        <ol class="timeline">
+          <li class="timeline-step">
+            <span class="tl-node">1</span>
+            <h3>选点</h3>
+            <p>多条件筛选可用点位，地图选点，批量创建点位包方案。</p>
+          </li>
+          <li class="timeline-step">
+            <span class="tl-node">2</span>
+            <h3>锁点</h3>
+            <p>创建订单与投放，点位排期锁定，防止资源冲突。</p>
+          </li>
+          <li class="timeline-step">
+            <span class="tl-node">3</span>
+            <h3>派单上刊</h3>
+            <p>上传画面、设置派单、指派上刊人员，任务实时推送。</p>
+          </li>
+          <li class="timeline-step">
+            <span class="tl-node">4</span>
+            <h3>完工报告</h3>
+            <p>自动生成完工报告与 PPT 报告，打包下载原图，提升客户满意度。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Scenarios -->
+    <section class="section" id="scenarios">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">更多业务场景 <span class="en">Scenarios</span></span>
+          <h2>覆盖户外媒体经营全场景</h2>
+          <p>从资源到投放，从排期到数据，每个环节都有专属模块。</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-media"><img src="./images/pc-dashboard.jpeg" alt="数据看板" loading="lazy" /></div>
+            <div class="feature-body">
+              <h3>数据看板</h3>
+              <p>业务关键指标一屏总览，实时掌握经营动态。</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-media"><img src="./images/pc-spots.jpeg" alt="点位管理" loading="lazy" /></div>
+            <div class="feature-body">
+              <h3>点位管理</h3>
+              <p>媒体资源、位置信息、所属小区与状态一站式维护。</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-media"><img src="./images/pc-schedule.jpeg" alt="排期日历" loading="lazy" /></div>
+            <div class="feature-body">
+              <h3>排期日历</h3>
+              <p>点位投放排期一目了然，锁定排期防冲突。</p>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-media"><img src="./images/pc-item.jpeg" alt="投放管理" loading="lazy" /></div>
+            <div class="feature-body">
+              <h3>投放管理</h3>
+              <p>投放执行与进度跟踪，多维度掌握投放情况。</p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Business -->
+    <section class="section alt" id="biz">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">业务中台 <span class="en">Business</span></span>
+          <h2>不只管点位，也管客户、商机和合同</h2>
+          <p>点位是资源，客户和合同才是收入。XOMAPS 把商机到合同的链路也放在同一套系统里，销售不用在表格、聊天记录和合同文件夹之间来回倒数据。</p>
+        </div>
+
+        <div class="cap-grid">
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <h3>客户档案</h3>
+            <p>客户信息与联系人集中维护，点开就能看到这家客户名下投过哪些点位、走过哪些订单，不用再翻历史合同。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                <polyline points="16 7 22 7 22 13" />
+              </svg>
+            </div>
+            <h3>商机跟进</h3>
+            <p>登记商机来源、优先级、预估金额与负责销售，成单后直接转成合同，跟进过程不再散落在各人手里。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="8" y1="13" x2="16" y2="13" />
+                <line x1="8" y1="17" x2="13" y2="17" />
+              </svg>
+            </div>
+            <h3>销售合同</h3>
+            <p>合同编号、状态与变更都留痕，改了什么、谁改的、为什么改都有记录，合同能直接关联到投放与请款。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18" />
+                <path d="M5 21V7l8-4v18" />
+                <path d="M19 21V11l-6-4" />
+                <line x1="9" y1="9" x2="9" y2="9.01" />
+                <line x1="9" y1="12" x2="9" y2="12.01" />
+                <line x1="9" y1="15" x2="9" y2="15.01" />
+              </svg>
+            </div>
+            <h3>采购合同与物业</h3>
+            <p>点位资源方的采购合同单独管，物业（供应商）档案与付款挂钩，采购与销售两条合同线不混在一起。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg>
+            </div>
+            <h3>统一审核中心</h3>
+            <p>合同、请款、提成、入驻申请走同一套审核，按角色与流程分派待办，谁能审、审到哪一步都清楚。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+            </div>
+            <h3>经营报表</h3>
+            <p>点位覆盖率与使用率按城市、区域、小区逐层拆开算，投放总览、投放任务与月度考勤各有独立报表。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
+            <h3>作业量与考勤</h3>
+            <p>上刊人员的派单完成情况按月汇总，外包施工队的作业量有据可查，结算外协费用时不必凭印象。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+            </div>
+            <h3>多租户与在线入驻</h3>
+            <p>媒体入驻、客户入驻、企业认证可在线提交，平台侧分级审核；多租户数据隔离，集团与下属公司各管一摊。</p>
+          </article>
+        </div>
+
+        <div class="flow-strip">
+          <p class="flow-strip-title">一条主线串起来：从商机到回款</p>
+          <ol>
+            <li><span>商机登记</span></li>
+            <li><span>销售合同</span></li>
+            <li><span>订单与锁位</span></li>
+            <li><span>派单上刊</span></li>
+            <li><span>请款</span></li>
+            <li><span>开票</span></li>
+            <li><span>到款与划拨</span></li>
+            <li><span>提成与对账</span></li>
+          </ol>
+          <p class="flow-strip-note">每个环节的单据都能往上一层追：一笔提成能追到划拨单，划拨单能追到到款与请款单，请款单能追到合同与投放订单。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Finance -->
+    <section class="section" id="finance">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">财务结算 <span class="en">Finance</span></span>
+          <h2>请款、到款、开票、提成，在一条链上算清楚</h2>
+          <p>财务不是最后补的一张表。请款、到款、划拨、发票、提成、对账、账期结转都在同一套数据里跑，单据之间彼此可追。</p>
+        </div>
+
+        <div class="cap-grid">
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
+              </svg>
+            </div>
+            <h3>请款与逾期标记</h3>
+            <p>按合同发起请款，登记请款日期与到期日期，逾期自动标出来，业务和财务看的是同一张单。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="1" x2="12" y2="23" />
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </div>
+            <h3>到款与划拨</h3>
+            <p>登记到款方式与金额，按请款单逐笔划拨，已划拨与剩余可划拨实时可见，划拨需走审核，不靠口头对账。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 3h16v18l-3-2-2 2-2-2-2 2-2-2-3 2z" />
+                <line x1="8" y1="8" x2="16" y2="8" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+              </svg>
+            </div>
+            <h3>发票管理</h3>
+            <p>发票号码、类型、税率与开票金额建档，关联请款单与合同，作废必须填原因，开票与收款不会对不上号。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6" />
+                <path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5" />
+              </svg>
+            </div>
+            <h3>提成核算</h3>
+            <p>提成金额按「划拨金额 × 提成比例」自动算，关联合同与销售人员；比例或金额都能手改，提交后进审核待办，到款才结算。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+            </div>
+            <h3>风控视图</h3>
+            <p>按客户看欠款与风险敞口，超期、超额的单子提前亮灯，不必等到月底结账才发现问题。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6h18" />
+                <path d="M3 12h18" />
+                <path d="M3 18h12" />
+              </svg>
+            </div>
+            <h3>客户对账</h3>
+            <p>按对账期间与账户类型出对账单，客户侧和内部记的是同一份数，对账不再靠互发 Excel 对差额。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <h3>会计期间与结转</h3>
+            <p>按会计年度与月份开闭账期，当前账期唯一且受控；支持年度结转，跨年数据不会串。</p>
+          </article>
+
+          <article class="cap-card">
+            <div class="cap-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                <polyline points="3.3 7 12 12 20.7 7" />
+                <line x1="12" y1="22" x2="12" y2="12" />
+              </svg>
+            </div>
+            <h3>采购付款与业绩</h3>
+            <p>采购合同对应付款单独走流程；销售业绩看板按人、按合同、按期间汇总，提成有依据。</p>
+          </article>
+        </div>
+
+        <div class="flow-strip">
+          <p class="flow-strip-title">结算链路</p>
+          <ol>
+            <li><span>请款</span></li>
+            <li><span>到款登记</span></li>
+            <li><span>划拨审核</span></li>
+            <li><span>开票</span></li>
+            <li><span>提成核算</span></li>
+            <li><span>对账</span></li>
+            <li><span>账期结账</span></li>
+          </ol>
+          <p class="flow-strip-note">说明边界：提成按「划拨金额 × 比例」单级计算，到款后才结算。多级阶梯提成、跨项目拆账、集团合并报表属于定制范围，实施前单独评估。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI -->
+    <section class="section alt" id="ai">
+      <div class="container">
+        <div class="mobile-grid">
+          <div class="mobile-copy">
+            <span class="section-badge">AI Copilot <span class="en">Assistant</span></span>
+            <h2>把「帮我找点位」直接说出来</h2>
+            <p>内置 Copilot 销售助理（基于 AgentScope），检索的是你自己库里的点位、档期和单价，不是通用大模型在猜。销售不必先学会用系统，问一句就能拿到可投组合。</p>
+            <ul class="mobile-features">
+              <li><strong>点位与排期查询</strong> — 说出区域、媒体类型与档期，直接返回可投点位</li>
+              <li><strong>预算拆组合</strong> — 给定预算，按库里真实单价算出几档点位组合</li>
+              <li><strong>投放方案生成</strong> — 一句话出一套点位组合方案，接着就能建点位包下单</li>
+              <li><strong>拜访记录转日志</strong> — 口述一段拜访内容，转成客户活动记录落库</li>
+              <li><strong>周报月报自动汇总</strong> — 按本周拜访、商机进展与投放方案生成工作汇报</li>
+            </ul>
+            <div class="chat-tag-row" style="margin-top: 26px;">
+              <span class="chat-tag">搜索点位</span>
+              <span class="chat-tag">点位详情</span>
+              <span class="chat-tag">城市列表</span>
+              <span class="chat-tag">查询排期</span>
+              <span class="chat-tag">计算预算</span>
+              <span class="chat-tag">生成投放方案</span>
+            </div>
+          </div>
+
+          <div class="ai-visual">
+            <div class="chat-demo">
+              <div class="chat-demo-head">
+                <span class="ai-mark" aria-hidden="true">AI</span>
+                <strong>Copilot 销售助理</strong>
+                <em>AgentScope</em>
+              </div>
+              <p class="bubble user">帮我查北京朝阳区电梯广告的可用点位，预算 30 万</p>
+              <p class="bubble ai">已按「朝阳区 · 电梯框架 · 当期可投」筛选，从点位库取到可用点位后，按预算拆成三档组合：<strong>高覆盖 / 均衡 / 控成本</strong>。每组都附点位清单、档期与单价，点开可以继续调整或直接生成投放方案。</p>
+              <p class="bubble user">客户要写进周报，帮我汇总本周进展</p>
+              <p class="bubble ai">已汇总本周客户拜访、商机进展与在谈投放方案，生成周报初稿，可在工作汇报里继续编辑。</p>
+            </div>
+            <p class="ai-note">
+              能力边界：Copilot 负责找点位、算预算、出方案、写记录。<b>照片是否错刊、遮挡、翻拍，仍由水印、定位与人工复核判定</b>，不做 AI 图像质检。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile -->
+    <section class="section" id="mobile">
+      <div class="container">
+        <div class="mobile-grid">
+          <div class="mobile-copy">
+            <span class="section-badge">移动端作业 <span class="en">Mobile</span></span>
+            <h2>上刊拍照上图，现场作业真实可溯</h2>
+            <p>上刊人员在现场用微信小程序或独立 App 接收任务、定位签到、拍照上传，关键环节自动留痕，后台实时可见。地下车库、电梯厅这些常年没信号的地方，也照样能拍完再传。</p>
+            <ul class="mobile-features">
+              <li><strong>任务实时接收</strong> — 派单任务即时推送，不错过任何上刊指令</li>
+              <li><strong>GPS 定位签到</strong> — 到点签到，确保作业位置真实</li>
+              <li><strong>拍照上图</strong> — 现场拍照自动上传，水印防伪、可追溯</li>
+              <li><strong>断网也能作业</strong> — 没信号时照片先存本机，网络恢复自动补传，上传失败的单独标记、可一键重试</li>
+              <li><strong>进度实时上报</strong> — 上刊状态与异常随时更新，后台同步</li>
+            </ul>
+            <div class="mobile-entries">
+              <div class="mobile-entry">
+                <img src="./images/wechat-app-image.png" alt="微信小程序扫码入口" width="88" height="88" loading="lazy" />
+                <div class="mobile-entry-body">
+                  <strong>微信小程序</strong>
+                  <span>扫码即用，无需下载</span>
+                </div>
+              </div>
+              <div class="mobile-entry">
+                <div class="mobile-entry-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                    <line x1="12" y1="18" x2="12.01" y2="18" />
+                  </svg>
+                </div>
+                <div class="mobile-entry-body">
+                  <strong>独立 App</strong>
+                  <span>独立客户端，作业数据实时同步</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-visual">
+            <div class="phone">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="phone-slides">
+                  <img class="phone-slide" src="./images/mobile-task-list.png" alt="移动端任务列表" loading="lazy" />
+                  <img class="phone-slide" src="./images/mobile-delivery-list.png" alt="移动端派单列表" loading="lazy" />
+                  <img class="phone-slide" src="./images/mobile-images-list.png" alt="移动端上刊拍照上图" loading="lazy" />
+                </div>
+                <div class="phone-dots" role="tablist" aria-label="移动端界面轮播">
+                  <button class="dot active" role="tab" aria-selected="true" aria-label="任务列表"></button>
+                  <button class="dot" role="tab" aria-selected="false" aria-label="派单列表"></button>
+                  <button class="dot" role="tab" aria-selected="false" aria-label="上刊拍照上图"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deployment -->
+    <section class="section alt" id="deployment">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">部署方式 <span class="en">Deployment</span></span>
+          <h2>本地部署版 与 SaaS 版</h2>
+          <p>一套系统，两种交付模式，按需选择最合适的部署方案。</p>
+        </div>
+        <div class="deploy-grid">
+          <article class="deploy-card">
+            <div class="deploy-tag">本地部署版</div>
+            <h3>数据完全自主可控</h3>
+            <p>面向对数据安全与合规有严格要求的企业，系统部署在自有服务器。</p>
+            <ul>
+              <li>数据完全本地化，自有服务器自主可控</li>
+              <li>符合国家数据安全法规要求</li>
+              <li>核心点位数据不依赖第三方</li>
+              <li>可定制化配置，随业务增长灵活扩展</li>
+              <li>企业级安全架构，权限精细管理</li>
+            </ul>
+            <a class="btn btn-outline" href="#contact">咨询本地部署</a>
+          </article>
+
+          <article class="deploy-card highlight">
+            <div class="deploy-tag">SaaS 版</div>
+            <h3>开箱即用，快速上线</h3>
+            <p>面向追求轻量、弹性与在线协同的客户，按需订阅，免运维。</p>
+            <ul>
+              <li>开箱即用，无需自建服务器与运维</li>
+              <li>按需订阅，成本可控，弹性扩容</li>
+              <li>自动更新，持续迭代，始终最新版本</li>
+              <li>多租户隔离，云端数据加密存储</li>
+              <li>媒体入驻在线协同，业务联动</li>
+            </ul>
+            <div class="deploy-actions">
+              <a class="btn btn-primary" href="https://saas.omaps.cn/#/media-entry">媒体入驻</a>
+              <a class="btn btn-ghost" href="https://saas.omaps.cn/#/login">登录系统</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">价格方案 <span class="en">Pricing</span></span>
+          <h2>按规模计价，不为你用不到的功能买单</h2>
+          <p>三种交付方案覆盖从十人团队到集团化经营，报价取决于席位数、点位规模与启用模块。</p>
+        </div>
+
+        <div class="price-grid">
+          <article class="price-card">
+            <div class="price-tag">SaaS 标准版</div>
+            <h3>中小媒体团队起步</h3>
+            <div class="price-value"><strong>按需报价</strong><span>按席位 + 点位数阶梯计价</span></div>
+            <p class="price-fit"><strong>适合</strong>点位规模 2000 以内、团队 10 人以内的媒体公司。</p>
+            <ul>
+              <li>点位管理与地图选点</li>
+              <li>订单投放与排期日历</li>
+              <li>派单上刊与完工报告</li>
+              <li>微信小程序移动端</li>
+              <li>数据看板（基础指标）</li>
+            </ul>
+            <a class="btn btn-outline" href="#contact">获取报价</a>
+          </article>
+
+          <article class="price-card highlight">
+            <div class="price-tag">SaaS 专业版</div>
+            <h3>成长型媒体公司主力选择</h3>
+            <div class="price-value"><strong>按需报价</strong><span>按席位 + 点位数 + 模块组合</span></div>
+            <p class="price-fit"><strong>适合</strong>多点位包经营、跨城市作业、需要经营分析与财务对账的团队。</p>
+            <ul>
+              <li>包含标准版全部功能</li>
+              <li>经营报表与点位覆盖率 / 使用率分析</li>
+              <li>请款、到款划拨、发票与提成核算</li>
+              <li>客户、商机与销售 / 采购合同管理</li>
+              <li>完工报告 / PPT 模板自定义</li>
+              <li>开放 API 与 MCP 接入，可对接自有系统</li>
+              <li>专属客户成功对接人</li>
+            </ul>
+            <a class="btn btn-primary" href="#contact">获取报价</a>
+          </article>
+
+          <article class="price-card">
+            <div class="price-tag">本地部署版</div>
+            <h3>数据不出内网的私有化方案</h3>
+            <div class="price-value"><strong>一次授权 + 年度维保</strong><span>按部署规模与定制范围报价</span></div>
+            <p class="price-fit"><strong>适合</strong>对数据合规、内网隔离、深度定制有硬性要求的企业。</p>
+            <ul>
+              <li>全模块功能，部署于自有服务器</li>
+              <li>点位等核心数据完全自主可控</li>
+              <li>现场实施、数据迁移、全员培训</li>
+              <li>支持按企业流程二次开发</li>
+              <li>年度维保与版本升级服务</li>
+            </ul>
+            <a class="btn btn-outline" href="#contact">咨询本地部署</a>
+          </article>
+        </div>
+
+        <p class="price-note">
+          三个版本均包含历史数据迁移协助与上线培训；支持先做一轮业务调研再出方案与报价，最终价格以商务报价单为准。
+        </p>
+
+        <div class="fit-block">
+          <h3>先说清楚适配边界</h3>
+          <p class="fit-desc">选型最怕买回来才发现对不上。这里把擅长和需要提前对齐的部分都写出来，省掉一轮试错。</p>
+          <div class="deploy-grid">
+            <article class="deploy-card">
+              <div class="deploy-tag">用起来最顺</div>
+              <h3>点位靠地图管、外勤靠手机跑</h3>
+              <ul>
+                <li>以大牌、候车亭、灯箱、道闸、墙体等静态户外为主营</li>
+                <li>点位规模几十到数百，用区域与点位包组织资源</li>
+                <li>外勤与外包安装队多，需要 GPS 签到与现场拍照留证</li>
+                <li>经常要给客户出点位分布方案与完工报告</li>
+                <li>希望数据留在自有服务器，走本地部署</li>
+              </ul>
+              <a class="btn btn-outline" href="#contact">看是否匹配我的业务</a>
+            </article>
+
+            <article class="deploy-card fit-caution">
+              <div class="deploy-tag">需要提前对齐</div>
+              <h3>这几类需求不在标准能力内</h3>
+              <ul>
+                <li>提成多级阶梯、跨项目拆账、集团合并报表——标准模块是"划拨 × 比例"的单级提成，复杂规则需评估</li>
+                <li>以 LED 数字屏为主营、需要播控引擎或程序化交易——XOMAPS 做的是播控衔接层（全量轮播清单下发到租户自接的播控系统），不含播控引擎、屏体控制与 SSP / DSP 对接</li>
+                <li>要求系统自动判定错刊、遮挡、翻拍——上刊核验依靠水印、定位与人工复核，无 AI 图像质检</li>
+                <li>上千点位且需要高度自定义 BI 看板——自带报表覆盖覆盖率、使用率、投放与考勤，超出范围的看板需按定制项目评估</li>
+              </ul>
+              <a class="btn btn-ghost" href="#contact">聊聊我的场景</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advantages -->
+    <section class="section alt" id="advantages">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">核心优势 <span class="en">Advantages</span></span>
+          <h2>为户外媒体行业量身定制</h2>
+          <p>六大核心能力，全方位提升户外媒体管理效率。</p>
+        </div>
+        <div class="bento">
+          <article class="bento-card large">
+            <h3>经营数据总览</h3>
+            <p>实时业务仪表盘，关键指标随时掌握，一屏总览全局。</p>
+            <div class="bento-stat"><strong>实时</strong><span>在投点位与空位状态随时可查</span></div>
+          </article>
+          <article class="bento-card"><h3>全程订单跟踪</h3><p>从订单创建到执行完成的全流程管理。</p></article>
+          <article class="bento-card"><h3>现场点位管控</h3><p>GPS 定位 + 拍照上传，资源状态一目了然。</p></article>
+          <article class="bento-card"><h3>投放执行管理</h3><p>移动端接收任务，现场实时上报进度与异常。</p></article>
+          <article class="bento-card large">
+            <h3>数据统计分析</h3>
+            <p>现场数据采集与云端分析结合，投放效果实时可见，辅助科学决策。</p>
+            <div class="bento-stat"><strong>多维</strong><span>按点位、客户、周期交叉统计</span></div>
+          </article>
+          <article class="bento-card"><h3>PPT 报告自动生成</h3><p>按模板一键生成专业 PPT 报告，自动排版、导出分享。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cases -->
+    <!-- 案例取自真实上线过程；客户名称按约定不披露，成效一律用定性表述，不写未标口径的量化数字 -->
+    <section class="section" id="cases">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">客户案例 <span class="en">Cases</span></span>
+          <h2>一家社区媒体运营商的三个转变</h2>
+          <p>电梯海报与社区灯箱是社区媒体最常见的两种点位形态。下面三个阶段取自同一家运营商的真实上线过程，按约定不披露客户名称。</p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card">
+            <div class="case-head">
+              <span class="case-industry">社区电梯海报</span>
+              <span class="case-scale">环节一 · 资源与排期</span>
+            </div>
+            <h3>排期不再靠表格，撞单从源头消失</h3>
+            <dl class="case-flow">
+              <div><dt>原来的问题</dt><dd>排期记在 Excel 里，谁改了哪一版没有记录，同一个位置在同一档期被两个销售卖出去的情况时有发生；客户问"某个片区这个月还有哪些空位"，只能回去翻表核对，隔天才答得上来。</dd></div>
+              <div><dt>上线做法</dt><dd>点位按区域与点位包组织，排期与订单绑定后自动锁位，锁定期内不可重复售卖；空位按区域、规格、档期组合筛选，也能在地图上直接圈选给客户出方案。</dd></div>
+              <div><dt>上线成效</dt><dd>撞单不再发生；空位从"回去翻表、隔天回复"变成带看当场就能给出可选方案。</dd></div>
+            </dl>
+          </article>
+
+          <article class="case-card">
+            <div class="case-head">
+              <span class="case-industry">社区灯箱</span>
+              <span class="case-scale">环节二 · 上刊执行</span>
+            </div>
+            <h3>照片不再躺在微信群里，每一张都对得上点位</h3>
+            <dl class="case-flow">
+              <div><dt>原来的问题</dt><dd>上刊师傅拍完照发在微信群里，很快被刷屏淹没，图片过期还下载不了；月底做报告才发现缺图，只能让师傅再跑一趟。客户还会质疑"这张是不是当期拍的"。</dd></div>
+              <div><dt>上线做法</dt><dd>派单下发到责任人，上刊人员在小程序接收任务，到点 GPS 签到，拍照自动叠加时间与地点水印，照片按"点位 + 订单 + 时间"自动归集，后台实时可见。</dd></div>
+              <div><dt>上线成效</dt><dd>照片回收不再靠人工催办；验收时每张照片都能对得上点位、时间与作业人员。</dd></div>
+            </dl>
+          </article>
+
+          <article class="case-card">
+            <div class="case-head">
+              <span class="case-industry">多城区点位包</span>
+              <span class="case-scale">环节三 · 报告交付</span>
+            </div>
+            <h3>完工报告从手工拼装变成一键生成</h3>
+            <dl class="case-flow">
+              <div><dt>原来的问题</dt><dd>一个投放结束，内勤要把上百张照片手工插进 PPT，改尺寸、排版式、写说明；十几个报告挤在月底，全公司加班，且质量随人波动。</dd></div>
+              <div><dt>上线做法</dt><dd>按客户配置报告模板，封面、版式、照片排布与说明字段一次配好，点击生成 PPT 报告，同时打包导出原图压缩包直接发给客户。</dd></div>
+              <div><dt>上线成效</dt><dd>报告不再占用整块人力，交付节奏不再被报告卡住，客户拿到手的格式始终一致。</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section alt" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">常见问题 <span class="en">FAQ</span></span>
+          <h2>选型前最常被问到的 16 个问题</h2>
+          <p>关于媒体类型、数据迁移、上线周期、财务能力与收费方式，这里先说清楚。</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1">
+              <span>我们做的是电梯框架 / 灯箱 / 车身 / 大牌，XOMAPS 都支持吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a1" role="region">
+              <p>支持。系统以"点位"为核心抽象，每个点位可挂位置、媒体类型、规格、所属小区或商圈、当前状态等属性。电梯框架、社区灯箱、道闸、候车亭、公交车身、户外大牌都可以按你自己的分类体系录入；一家公司同时经营多种媒体类型也没有冲突。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2">
+              <span>现在点位和排期都在 Excel 里，能直接导入吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a2" role="region">
+              <p>可以。系统提供标准导入模板，点位、客户、历史订单与排期都能批量导入。导入前会做校验，重复的点位编码、冲突的排期会先提示出来，不会把脏数据写进系统。历史数据量较大的客户，实施阶段由我们协助清洗后再导入。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3">
+              <span>上刊师傅年纪偏大、不太会用智能手机，推得动吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a3" role="region">
+              <p>推得动，关键是入口要足够轻。上刊人员用微信小程序即可，不需要下载安装 App；任务以列表形式下发，点进去就是"签到 — 拍照 — 提交"三步，现场操作平均 1 分钟内完成。上线首周我们提供现场或远程带教，确保每位师傅独立完成一次完整上刊。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4">
+              <span>小程序和独立 App 必须都用吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a4" role="region">
+              <p>不必二选一，也不必都用。日常上刊用小程序最轻；需要离线作业、大批量拍照上传或更完整的功能时用独立 App。两端共用同一份数据，后台看到的结果完全一致，团队可以混合使用。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5">
+              <span>完工报告能按我们自己的模板出吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a5" role="region">
+              <p>能。报告模板可配置封面、版式、点位照片排布方式与说明字段，一次点击生成 PPT 报告，同时打包导出原图压缩包，直接发给客户。模板可以按客户或项目分别保存，下次复用。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a6">
+              <span>SaaS 版和本地部署版的功能有差别吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a6" role="region">
+              <p>核心业务功能一致，差别在交付形态。SaaS 版开箱即用、自动升级、按年订阅；本地部署版部署在你的服务器上，支持深度定制与二次开发，按授权 + 年度维保计费。选哪个主要取决于数据合规要求，而不是功能多少。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a7">
+              <span>点位数据和客户资料放在 SaaS 上安全吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a7" role="region">
+              <p>传输全程 HTTPS，存储层做多租户隔离、敏感字段加密，按角色控制数据可见范围，关键操作留有审计日志。如果你的合规要求数据不能出内网，直接选本地部署版，点位数据完全留在自有服务器。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a8">
+              <span>从签约到真正用起来要多久？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a8" role="region">
+              <p>SaaS 版通常 1–2 周完成初始化、数据导入与培训，即可投入试用。本地部署版需要准备服务器、实施部署、迁移数据，一般 4–8 周，具体取决于数据量级与定制范围。签合同前会给你一份明确的实施排期。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a9">
+              <span>我们的业务流程比较特殊，系统能改吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a9" role="region">
+              <p>标准流程（选点 — 锁点 — 派单上刊 — 完工报告）覆盖绝大多数场景。审批流、自定义字段、报表口径可以按企业习惯配置；超出配置范围的个性化需求，本地部署版支持二次开发对接。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a10">
+              <span>怎么收费？有隐形费用吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a10" role="region">
+              <p>按席位数、点位规模与启用模块组合计价：SaaS 按年订阅，本地部署为一次授权 + 年度维保。报价前先做一轮业务调研，出方案和报价单，列明包含的实施、培训与维保内容，不做隐形收费。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a11">
+              <span>地图只是展示，还是能在地图上直接操作？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a11" role="region">
+              <p>能操作。点位按经纬度在地图上落位，地图视图做聚合展示；可用点位按区域、规格、档期筛选后在地图上高亮；还可以在地图上框选一个片区，直接得到范围内的小区数与点位数。点位包内的点位也能成组上地图，给客户讲方案时不必只对着编号表。点位实景照片同样挂在点位上，随时可查。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a12">
+              <span>现场没信号、地下车库拍不了照怎么办？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a12" role="region">
+              <p>断网可以作业。照片先暂存在手机本地并标记为待上传，网络恢复后自动补传；上传失败的会单独标记，可一键重试。电梯厅、地下车库这类常年没信号的位置，作业逻辑不受影响，也不会因为没网丢掉当期照片。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a13">
+              <span>LED 数字屏、程序化投放支持吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a13" role="region">
+              <p>XOMAPS 的核心是<b>静态平面媒体</b>——大牌、候车亭、灯箱、道闸、墙体这类需要现场张贴、拍照留证的形态。LED 数字屏纳入同一套点位、排期与订单体系，并支持把<b>全量轮播清单按版本整体下发</b>到租户自接的播控系统（播控衔接层）；但系统不做播控引擎与屏体播放控制，屏和播控账号仍在租户手里，播放凭证现阶段以人工验收兜底，也不含 SSP / DSP 程序化交易对接。以程序化售卖为主营的公司，仍不适合把 XOMAPS 当作主系统。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a14">
+              <span>财务和提成能做到什么程度？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a14" role="region">
+              <p>不是只有一张对账表。系统里有请款（带到期日与逾期标记）、到款登记、划拨审核、发票（号码、类型、税率、作废原因）、提成、客户对账、会计期间开闭与年度结转，还有按客户的欠款风控视图。提成按"划拨金额 × 提成比例"自动算，关联合同与销售人员，到款后才结算。</p>
+              <p>边界也要说清楚：这是单级比例提成，不是多级阶梯。如果提成规则涉及多级阶梯、跨项目拆账、集团合并报表，那属于定制范围，实施前单独评估——能配就配，配不了就通过开放接口和你原有财务系统对接，不硬扛。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a15">
+              <span>里面有 AI 吗？能做什么、不能做什么？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a15" role="region">
+              <p>有内置 Copilot 销售助理（基于 AgentScope），检索的是你自己库里的点位、排期和单价，不是通用模型在编。能做的：按区域、媒体类型、档期查可用点位；按预算拆点位组合；一句话生成投放方案；把口述的拜访内容转成客户活动记录；汇总周报月报。</p>
+              <p>不能做的也要讲明：它不做图像质检。照片是否错刊、遮挡、翻拍，仍由时间地点水印、GPS 定位与人工复核判定。需要系统自动判图的，XOMAPS 目前不满足。</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a16">
+              <span>能和现有的财务、OA 系统对接吗？</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a16" role="region">
+              <p>能。系统提供标准的 OpenAPI 接口，接口清单与参数以接口文档为准，可按需对接财务、OA、ERP 或自建中台；同时提供 MCP 协议接入，AI 客户端可以直接调用点位、排期等查询能力。本地部署版可按企业内网规范调整接口与鉴权方式，SaaS 版通过开放接口集成。</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="faq-more">
+          还有其他问题？直接在<a href="#contact">联系我们</a>里找商务咨询，或先看看<a href="./insights/index.html">行业洞察</a>里的选型与流程文章。
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-badge">联系我们 <span class="en">Contact</span></span>
+          <h2>升级数字化管理之旅</h2>
+          <p>专业团队随时为您提供支持与解决方案。</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-item"><span>商务咨询</span><strong>冯小姐：189 2610 8189</strong></div>
+          <div class="contact-item"><span>商务邮箱</span><strong>sales@omaps.cn</strong></div>
+          <div class="contact-item"><span>公司地址</span><strong>广州市天河区金穗路 1 号邦华广场</strong></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="信朴 XOMAPS 首页">
+            <span class="brand-mark">O</span>
+            <span class="brand-name">XOMAPS<em>信朴</em></span>
+          </a>
+          <p>户外媒体点位管理系统，覆盖点位资源、订单投放、派单上刊、完工报告全流程，支持本地部署与 SaaS 订阅。</p>
+        </div>
+
+        <nav class="footer-col" aria-label="产品导航">
+          <h3>产品</h3>
+          <a href="#features">产品功能</a>
+          <a href="#map">地图管控</a>
+          <a href="#workflow">操作流程</a>
+          <a href="#scenarios">更多场景</a>
+          <a href="#mobile">移动端作业</a>
+        </nav>
+
+        <nav class="footer-col" aria-label="业务与财务导航">
+          <h3>业务与财务</h3>
+          <a href="#biz">客户与合同</a>
+          <a href="#finance">财务结算</a>
+          <a href="#ai">AI 销售助理</a>
+          <a href="#advantages">核心优势</a>
+        </nav>
+
+        <nav class="footer-col" aria-label="方案导航">
+          <h3>方案</h3>
+          <a href="#deployment">部署方式</a>
+          <a href="#pricing">价格方案</a>
+          <a href="#cases">客户案例</a>
+        </nav>
+
+        <nav class="footer-col" aria-label="支持导航">
+          <h3>支持</h3>
+          <a href="#faq">常见问题</a>
+          <a href="https://blog.omaps.cn" target="_blank" rel="noopener">技术博客</a>
+          <a href="./insights/index.html">行业洞察</a>
+          <a href="./news/index.html">每日热点</a>
+          <a href="https://saas.omaps.cn/#/media-entry">媒体入驻</a>
+          <a href="https://saas.omaps.cn/#/login">登录系统</a>
+        </nav>
+
+        <div class="footer-col">
+          <h3>联系</h3>
+          <a href="tel:18926108189">商务咨询：189 2610 8189</a>
+          <a href="mailto:sales@omaps.cn">sales@omaps.cn</a>
+          <span class="footer-address">广州市天河区金穗路 1 号邦华广场</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> 信朴 XOMAPS 户外媒体点位管理系统</span>
+        <!-- ICP 备案号：上线前请与网站主办者核对主体一致性 -->
+        <span class="footer-icp"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">粤ICP备2025388824号</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
