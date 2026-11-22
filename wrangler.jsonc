@@ -1,0 +1,16 @@
+{
+  // Cloudflare Workers 配置：部署官网静态资源（由 scripts/deploy-cf.sh rsync 出的 dist/）
+  // 部署命令：bash scripts/deploy-cf.sh
+  // ⚠️ 仓库根目录布局保持不变（GitHub Pages 仍从根目录发布 www.omaps.cn）；
+  //    CF 侧只部署 dist/ 快照（排除 .git/README/tools/CNAME 等非站点文件）
+  // not_found_handling 与原 nginx try_files 兜底行为一致：未命中路径回首页 index.html
+  // ⚠️ 路由绑定：zone omaps.cn 若在 CF 账号，可加
+  //    "routes": [{ "pattern": "www.omaps.cn", "zone_name": "omaps.cn" }]
+  //    zone 不在则绑定无从谈起（xomaps.com 2026-11-22 实测先例），DNS 需迁到 CF 才能用 Worker 承域
+  "name": "omaps-cn",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

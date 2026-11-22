@@ -11,6 +11,7 @@
 | `news/` | 每日行业热点栏目（含 2026-11-17 快照与 data/*.json） |
 | `tools/news/` | 每日热点抓取发布脚本（news_digest.py / .sh / news_sources.json） |
 | `CNAME` | GitHub Pages 自定义域名 www.omaps.cn |
+| `wrangler.jsonc` `scripts/deploy-cf.sh` | Cloudflare Workers 部署（worker 名 omaps-cn，见下节） |
 
 ⚠️ 待办：站内品牌署名仍是「麦朴」，与信朴口径不一致，改造为信朴前不建议大范围引流。
 
@@ -22,6 +23,14 @@
 2. **GitHub Actions 定时**（后续可选）：cron 触发 tools/news/news_digest.sh 后自动 commit——需要时再加。
 
 `tools/news/news_digest.py` 的站点根已改为仓库根（SITE_DIR = REPO_ROOT），路径无需再适配。企微通知走环境变量 `QY_WEBHOOK`，未配置则跳过。
+
+## Cloudflare Workers 部署（2026-11-22 加）
+
+与 xomaps.com 仓同套路：`bash scripts/deploy-cf.sh`（rsync 站点文件到 dist/ 快照后 wrangler deploy），worker 名 **omaps-cn**（CF worker 名不允许带点）。
+
+- 当前可访问：https://omaps-cn.jokeway.workers.dev
+- `not_found_handling: single-page-application` 与原 nginx `try_files … /index.html` 兜底行为一致
+- ⚠️ **域名绑定暂不可行**：omaps.cn 的 DNS 在 DNSPod、zone 不在 Cloudflare 账号（deploy 实测 `Can't infer zone from route`）。Worker 要接 www.omaps.cn 必须先把 zone 迁到 Cloudflare（或 DNSPod 处把 www CNAME 到 workers.dev——**不可行**，workers.dev 自定义域名同样要求 zone 在 CF）。迁 zone 后在 wrangler.jsonc 加 `routes: [{ pattern: "www.omaps.cn", zone_name: "omaps.cn" }]` 重新部署即可。
 
 ## 上线步骤（托管服务切换清单）
 
