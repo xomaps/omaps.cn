@@ -13,6 +13,7 @@ cd "$REPO_ROOT"
 mkdir -p dist
 rsync -a --delete \
     --exclude '.git/' \
+    --exclude '.github/' \
     --exclude '.gitignore' \
     --exclude '.DS_Store' \
     --exclude 'README.md' \

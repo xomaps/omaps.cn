@@ -1,0 +1,33 @@
+name: Deploy to Cloudflare Workers
+
+# 推送 main 即重新部署 CF Worker omaps-cn（与 GitHub Pages 并行，两套托管都保持最新）
+# 前置：仓库 Secrets 配置 CLOUDFLARE_API_TOKEN
+#   （CF 控制台 → My Profile → API Tokens → Create Token → 模板 "Edit Cloudflare Workers"，
+#     Account Resources 选 jokeway 账号；Worker 名 omaps-cn，assets 部署权限即够）
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "README.md"
+      - "docs/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cf-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: ${{ github.repository_owner == 'xomaps' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Build dist snapshot & deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: bash scripts/deploy-cf.sh
