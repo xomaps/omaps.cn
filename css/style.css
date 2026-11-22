@@ -433,6 +433,7 @@ img { max-width: 100%; display: block; }
 .price-value span { color: var(--text-muted); font-size: 13px; }
 .price-fit { color: var(--text-muted); font-size: 14px; margin: 0 0 16px; }
 .price-fit strong { color: var(--text); }
+.price-sub { color: var(--text-muted); font-size: 13px; margin: 12px 0 0; }
 .price-card ul { list-style: none; padding: 0; margin: 0 0 26px; display: grid; gap: 10px; flex: 1; }
 .price-card li { padding-left: 26px; position: relative; color: var(--text-muted); font-size: 15px; }
 .price-card li::before { content: "✓"; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
