@@ -17,7 +17,6 @@ rsync -a --delete \
     --exclude '.gitignore' \
     --exclude '.DS_Store' \
     --exclude 'README.md' \
-    --exclude 'tools/' \
     --exclude 'CNAME' \
     --exclude 'wrangler.jsonc' \
     --exclude 'scripts/' \

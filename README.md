@@ -8,21 +8,14 @@
 | 路径 | 说明 |
 |---|---|
 | `index.html` `css/` `js/` `images/` `insights/` | 官网静态站本体（原样迁入，未改内容） |
-| `news/` | 每日行业热点栏目（含 2026-11-17 快照与 data/*.json） |
-| `tools/news/` | 每日热点抓取发布脚本（news_digest.py / .sh / news_sources.json） |
 | `CNAME` | GitHub Pages 自定义域名 www.omaps.cn |
 | `wrangler.jsonc` `scripts/deploy-cf.sh` | Cloudflare Workers 部署（worker 名 omaps-cn，见下节） |
 
-⚠️ 待办：站内品牌署名仍是「麦朴」，与信朴口径不一致，改造为信朴前不建议大范围引流。
+站内品牌署名已全量为「信朴 / Xomaps®」（2026-11-23 复核，html/css/js 无「麦朴/麦扑/Xinpure」残留）；`dist/` 为旧快照（gitignore），下次部署由 `scripts/deploy-cf.sh` 的 rsync --delete 重建。
 
-## 每日热点（news）生成方式变化
+## 每日热点（news）已下线（2026-11-23）
 
-原为服务器 cron 每天 09:30 运行（/work/omaps-deploy/jobs/news_digest.sh），迁出后服务器 cron 随 www.omaps.cn 下线一并撤销。此后两种跑法：
-
-1. **本地手动**：`bash tools/news/news_digest.sh`（产出写入 `news/` 与首页 DAILY-NEWS 区块，提交推送即发布）；
-2. **GitHub Actions 定时**（后续可选）：cron 触发 tools/news/news_digest.sh 后自动 commit——需要时再加。
-
-`tools/news/news_digest.py` 的站点根已改为仓库根（SITE_DIR = REPO_ROOT），路径无需再适配。企微通知走环境变量 `QY_WEBHOOK`，未配置则跳过。
+首页「每日热点 Daily News」板块、页脚与洞察页入口、`news/` 栏目页、抓取脚本 `tools/news/` 已全部移除，sitemap 中对应条目同步删除。此前 cron 与 GitHub Actions 两种跑法均不再需要；如未来要恢复栏目，从 git 历史找回 `news/`、`tools/news/` 即可。
 
 ## Cloudflare Workers 部署（2026-11-22 加）
 

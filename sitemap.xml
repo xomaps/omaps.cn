@@ -131,12 +131,5 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- 每日热点：户外媒体/分众传媒等行业动态（每日自动更新） -->
-  <url>
-    <loc>https://www.omaps.cn/news/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
 
 </urlset>

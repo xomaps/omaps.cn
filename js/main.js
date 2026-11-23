@@ -1,5 +1,43 @@
-// 官网交互：移动端导航、数字滚动、滚动渐显、年份
+// 官网交互：移动端导航、数字滚动、滚动渐显、年份、头部收缩、悬浮联系栏
 document.addEventListener('DOMContentLoaded', function () {
+  // 头部导航：滚动后收缩为居中圆角卡片
+  var header = document.querySelector('.site-header');
+  if (header) {
+    var onHeaderScroll = function () {
+      header.classList.toggle('scrolled', window.scrollY > 30);
+    };
+    window.addEventListener('scroll', onHeaderScroll, { passive: true });
+    onHeaderScroll();
+  }
+
+  // 右侧悬浮联系栏：回到顶部 + 移动端小程序码弹层
+  var topBtn = document.getElementById('backToTop');
+  if (topBtn) {
+    var onTopScroll = function () {
+      topBtn.classList.toggle('show', window.scrollY > 400);
+    };
+    window.addEventListener('scroll', onTopScroll, { passive: true });
+    onTopScroll();
+    topBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  var wechatBtn = document.querySelector('.side-tool.wechat-btn');
+  if (wechatBtn) {
+    wechatBtn.addEventListener('click', function (e) {
+      if (window.innerWidth <= 640) {
+        e.preventDefault();
+        wechatBtn.classList.toggle('qr-open');
+      }
+    });
+    document.addEventListener('click', function (e) {
+      if (window.innerWidth <= 640 && !wechatBtn.contains(e.target)) {
+        wechatBtn.classList.remove('qr-open');
+      }
+    });
+  }
+
   // 移动端导航切换
   var navToggle = document.getElementById('navToggle');
   var nav = document.getElementById('nav');

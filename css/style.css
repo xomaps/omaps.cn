@@ -23,7 +23,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: "Inter", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", "Inter", sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.7;
@@ -49,17 +49,33 @@ img { max-width: 100%; display: block; }
 }
 .skip-link:focus { left: 0; }
 
-/* Header */
+/* Header：fixed 布局，滚动后收缩为居中圆角卡片（对齐 xomaps.com 版式） */
+body { padding-top: 72px; }
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: saturate(180%) blur(16px);
-  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  background: linear-gradient(135deg, #ffffff 0%, #fff7ef 45%, #fffdf9 100%);
   border-bottom: 1px solid rgba(31, 24, 12, 0.06);
+  transition: top 0.45s cubic-bezier(0.22, 1, 0.36, 1), width 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.header-inner { display: flex; align-items: center; height: 68px; gap: 20px; }
+.site-header.scrolled {
+  top: 10px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: min(1200px, calc(100% - 32px));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 253, 250, 0.92);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  box-shadow: 0 12px 34px -10px rgba(204, 92, 0, 0.18);
+}
+.header-inner { display: flex; align-items: center; height: 70px; gap: 16px; max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+.site-header.scrolled .header-inner { height: 60px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; white-space: nowrap; }
 .brand-mark {
   display: grid; place-items: center; width: 34px; height: 34px;
@@ -68,10 +84,22 @@ img { max-width: 100%; display: block; }
 }
 .brand-name em { font-style: normal; color: var(--primary); }
 /* 菜单项禁止内部折行：中文可在任意字处断行，空间一紧就会出现「产品功/能」两行的情况 */
-.nav { display: flex; gap: 10px; margin-left: auto; }
-.nav a { color: var(--text-muted); font-weight: 500; font-size: 14px; transition: color 0.2s ease; white-space: nowrap; }
+.nav { display: flex; gap: 4px; margin: 0 auto; }
+.nav a { color: var(--text-muted); font-weight: 500; font-size: 14px; padding: 8px 12px; border-radius: 8px; transition: color 0.2s ease; white-space: nowrap; }
 .nav a:hover { color: var(--primary); }
-.header-actions { display: flex; gap: 10px; align-items: center; }
+.header-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+.header-phone {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: 999px;
+  background: var(--gradient); color: #fff;
+  font-size: 13.5px; font-weight: 700; line-height: 1; white-space: nowrap;
+  box-shadow: 0 4px 14px -2px rgba(255, 128, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.header-phone:hover { transform: translateY(-1px); box-shadow: 0 6px 18px -2px rgba(255, 128, 0, 0.55); }
+.header-phone svg { width: 15px; height: 15px; flex-shrink: 0; }
+/* 空间紧张时电话先只留图标，再挤不下则整段收起（≤1200px 由汉堡菜单接管） */
+@media (max-width: 1360px) { .header-phone span { display: none; } .header-phone { padding: 9px 11px; } }
 .nav-toggle { display: none; border: 0; background: none; font-size: 22px; cursor: pointer; color: var(--text); }
 
 /* Buttons */
@@ -528,8 +556,9 @@ img { max-width: 100%; display: block; }
   .contact-grid { grid-template-columns: 1fr; }
   .nav, .header-actions { display: none; }
   .nav-toggle { display: block; margin-left: auto; }
-  .nav.open { display: flex; position: absolute; top: 68px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 18px 28px; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+  .nav.open { display: flex; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 18px 28px; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); border-radius: 0 0 14px 14px; }
   .nav.open a { padding: 10px 0; }
+  .site-header.scrolled { width: calc(100% - 24px); top: 8px; }
 }
 @media (max-width: 560px) {
   .hero h1 { font-size: 32px; }
@@ -561,7 +590,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 1200px) {
   .nav, .header-actions { display: none; }
   .nav-toggle { display: block; margin-left: auto; }
-  .nav.open { display: flex; position: absolute; top: 68px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 18px 28px; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+  .nav.open { display: flex; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 18px 28px; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); border-radius: 0 0 14px 14px; }
   .nav.open a { padding: 10px 0; white-space: normal; }
 }
 @media (max-width: 1040px) {
@@ -572,4 +601,121 @@ img { max-width: 100%; display: block; }
   .flow-strip { padding: 22px 20px; }
   .flow-strip li::after { margin: 0 6px; }
   .flow-strip li span { padding: 6px 12px; font-size: 13px; }
+}
+
+/* ===== 右侧悬浮快捷联系栏（对齐 xomaps.com 版式，品牌橙配色） ===== */
+.side-tools {
+  --st-brand: var(--primary);
+  --st-brand-2: var(--accent);
+  --st-brand-text: var(--primary-deep);
+  position: fixed; right: 18px; top: 50%; transform: translateY(-50%);
+  z-index: 60; display: flex; flex-direction: column; gap: 10px;
+}
+.side-tool {
+  position: relative; width: 48px; height: 48px; border-radius: 13px;
+  background: #fff; border: 1px solid var(--border);
+  box-shadow: 0 4px 14px rgba(31, 24, 12, 0.10);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.25s ease; color: var(--primary);
+  text-decoration: none;
+}
+.side-tool:hover {
+  background: var(--gradient); color: #fff; border-color: transparent;
+  transform: translateX(-4px); box-shadow: 0 8px 20px rgba(255, 128, 0, 0.35);
+}
+.side-tool svg { width: 22px; height: 22px; }
+
+/* 文字提示气泡 */
+.side-tool .tip {
+  position: absolute; right: 58px; top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  white-space: nowrap; background: #fff; color: var(--text);
+  font-size: 13px; padding: 7px 13px; border-radius: 9px;
+  border: 1px solid var(--border); box-shadow: 0 4px 14px rgba(31, 24, 12, 0.12);
+  opacity: 0; visibility: hidden; pointer-events: none; transition: all 0.25s ease;
+}
+.side-tool .tip::after {
+  content: ""; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+  border: 6px solid transparent; border-left-color: #fff;
+}
+.side-tool:hover .tip { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0); }
+
+/* 小程序二维码弹窗 */
+.side-tool .qr-popup {
+  position: absolute; right: 58px; top: 50%;
+  transform: translateY(-50%) translateX(8px) scale(0.92);
+  background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 12px;
+  box-shadow: 0 8px 28px rgba(31, 24, 12, 0.18);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: all 0.3s ease; text-align: center; width: 168px;
+}
+.side-tool .qr-popup .qr-img {
+  width: 144px; height: 144px; border: 1px solid var(--border); border-radius: 8px;
+  overflow: hidden; background: #fff; margin: 0 auto;
+}
+.side-tool .qr-popup .qr-img img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.side-tool .qr-popup .qr-label { font-size: 12.5px; color: var(--st-brand-text); font-weight: 600; margin-top: 8px; }
+.side-tool .qr-popup .qr-sub { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+.side-tool:hover .qr-popup,
+.side-tool.qr-open .qr-popup { opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0) scale(1); }
+
+/* 在线咨询：常驻品牌色 + 脉冲提示 */
+.side-tool.consult-btn {
+  background: var(--gradient); color: #fff; border-color: transparent;
+  box-shadow: 0 6px 18px rgba(255, 128, 0, 0.40);
+}
+.side-tool.consult-btn:hover {
+  transform: translateX(-4px) scale(1.05); box-shadow: 0 10px 26px rgba(255, 128, 0, 0.55);
+}
+.side-tool.consult-btn .tip { background: var(--primary); color: #fff; border-color: transparent; }
+.side-tool.consult-btn .tip::after { border-left-color: var(--primary); }
+.side-tool.consult-btn .ring {
+  position: absolute; inset: 0; border-radius: 13px; border: 2px solid var(--accent);
+  pointer-events: none; animation: sidePulse 2.2s ease-out infinite;
+}
+@keyframes sidePulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* 回到顶部：滚动后出现 */
+.side-tool.top-btn { opacity: 0; visibility: hidden; transform: translateX(20px); transition: all 0.3s ease; }
+.side-tool.top-btn.show { opacity: 1; visibility: visible; transform: translateX(0); }
+
+@media (max-width: 640px) {
+  /* 窄屏：品牌名截断，保证汉堡菜单按钮有位置 */
+  .brand { min-width: 0; flex-shrink: 1; font-size: 16px; }
+  .brand-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* 悬浮联系栏改底部横排，避免遮住正文 */
+  .side-tools {
+    top: auto; bottom: 0; left: 0; right: 0;
+    transform: none; flex-direction: row; justify-content: center; gap: 0;
+    background: rgba(255, 255, 255, 0.96);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 16px rgba(31, 24, 12, 0.08);
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+  }
+  body { padding-bottom: 58px; }
+  .side-tool {
+    flex: 1; width: auto; height: 44px; border: 0; border-radius: 10px;
+    box-shadow: none; background: transparent;
+  }
+  .side-tool:hover { transform: none; box-shadow: none; background: var(--primary-soft); }
+  .side-tool.consult-btn { background: var(--gradient); }
+  .side-tool.consult-btn .ring { border-radius: 10px; }
+  .side-tool svg { width: 20px; height: 20px; }
+  .side-tool .tip { display: none; }
+  .side-tool .qr-popup,
+  .side-tool:hover .qr-popup,
+  .side-tool.qr-open .qr-popup {
+    top: auto; bottom: 56px; right: 8px;
+    transform: scale(0.92);
+  }
+  .side-tool:hover .qr-popup,
+  .side-tool.qr-open .qr-popup { opacity: 1; visibility: visible; transform: scale(1); }
+  .side-tool.top-btn { opacity: 1; visibility: visible; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .side-tool.consult-btn .ring { animation: none; }
 }
