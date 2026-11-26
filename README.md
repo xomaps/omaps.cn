@@ -11,7 +11,7 @@
 | `CNAME` | GitHub Pages 自定义域名 www.omaps.cn |
 | `wrangler.jsonc` `scripts/deploy-cf.sh` | Cloudflare Workers 部署（worker 名 omaps-cn，见下节） |
 
-站内品牌署名已全量为「信朴 / Xomaps®」（2026-11-23 复核，html/css/js 无「麦朴/麦扑/Xinpure」残留）；`dist/` 为旧快照（gitignore），下次部署由 `scripts/deploy-cf.sh` 的 rsync --delete 重建。
+站内品牌署名已全量为「信朴 / Xomaps」（2026-11-23 复核，html/css/js 无「麦朴/麦扑/Xinpure」残留）；`dist/` 为旧快照（gitignore），下次部署由 `scripts/deploy-cf.sh` 的 rsync --delete 重建。
 
 ## 每日热点（news）已下线（2026-11-23）
 

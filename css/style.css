@@ -426,14 +426,17 @@ body { padding-top: 72px; }
 .ai-note b { color: var(--text); }
 
 /* Contact */
-.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
 .contact-item {
   background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 .contact-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .contact-item span { display: block; color: var(--text-muted); margin-bottom: 10px; }
 .contact-item strong { font-size: 17px; }
+.contact-qr { width: 140px; height: 140px; object-fit: contain; background: #fff; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; }
+.contact-item--qr strong { font-size: 15px; font-weight: 500; color: var(--text-muted); }
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--border); color: var(--text-muted); }
@@ -553,7 +556,7 @@ body { padding-top: 72px; }
   .timeline::before { display: none; }
   .bento { grid-template-columns: 1fr 1fr; }
   .bento-card.large { grid-column: span 2; }
-  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
   .nav, .header-actions { display: none; }
   .nav-toggle { display: block; margin-left: auto; }
   .nav.open { display: flex; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 18px 28px; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-sm); border-radius: 0 0 14px 14px; }
@@ -573,6 +576,7 @@ body { padding-top: 72px; }
   .price-grid { grid-template-columns: 1fr; }
   .price-card.highlight { order: -1; }
   .footer-top { grid-template-columns: 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
   .case-grid { grid-template-columns: 1fr; }
@@ -583,6 +587,7 @@ body { padding-top: 72px; }
   .faq-q { font-size: 15px; padding: 16px 18px; }
   .faq-a { padding: 0 18px 18px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .contact-grid { grid-template-columns: 1fr; }
 }
 
 /* Responsive: capability grid / flow strip / chat demo */
