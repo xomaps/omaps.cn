@@ -23,20 +23,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var wechatBtn = document.querySelector('.side-tool.wechat-btn');
-  if (wechatBtn) {
-    wechatBtn.addEventListener('click', function (e) {
+  var qrBtns = Array.prototype.slice.call(
+    document.querySelectorAll('.side-tool.wechat-btn, .side-tool.wecom-btn')
+  );
+  qrBtns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
       if (window.innerWidth <= 640) {
         e.preventDefault();
-        wechatBtn.classList.toggle('qr-open');
+        var wasOpen = btn.classList.contains('qr-open');
+        qrBtns.forEach(function (other) { other.classList.remove('qr-open'); });
+        if (!wasOpen) { btn.classList.add('qr-open'); }
       }
     });
     document.addEventListener('click', function (e) {
-      if (window.innerWidth <= 640 && !wechatBtn.contains(e.target)) {
-        wechatBtn.classList.remove('qr-open');
+      if (window.innerWidth <= 640 && !btn.contains(e.target)) {
+        btn.classList.remove('qr-open');
       }
     });
-  }
+  });
 
   // 移动端导航切换
   var navToggle = document.getElementById('navToggle');
