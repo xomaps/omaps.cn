@@ -1,0 +1,21 @@
+baseURL = "https://www.omaps.cn/"
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"
+title = "信朴 Xomaps · 户外媒体管理系统"
+
+# 禁用 Hugo 自动生成的 sitemap/robots/RSS，站点自有版本放 static/ 原样输出
+# 注意：顶层键必须写在所有 [table] 段之前（TOML 语义）
+disableKinds = ["taxonomy", "term", "rss", "sitemap", "robotsTXT"]
+disableHugoGeneratorInject = true
+
+# 文件式输出：页面为 /insights/<slug>.html，与迁移前 URL 完全一致
+uglyURLs = true
+
+# URL 兼容：文章保留 /insights/<slug>.html 后缀，与迁移前完全一致
+[permalinks]
+  insights = "/insights/:filename"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

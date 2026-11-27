@@ -1,5 +1,5 @@
 {
-  // Cloudflare Workers 配置：部署官网静态资源（由 scripts/deploy-cf.sh rsync 出的 dist/）
+  // Cloudflare Workers 配置：部署官网静态资源（scripts/deploy-cf.sh 由 Hugo 构建出的 dist/）
   // 部署命令：bash scripts/deploy-cf.sh
   // ⚠️ 仓库根目录布局保持不变（GitHub Pages 仍从根目录发布 www.omaps.cn）；
   //    CF 侧只部署 dist/ 快照（排除 .git/README/CNAME 等非站点文件）

@@ -2,3 +2,5 @@
 logs/
 dist/
 .wrangler/
+resources/
+.hugo_build.lock

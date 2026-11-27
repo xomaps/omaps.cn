@@ -1,0 +1,10 @@
+{{ if .IsHome }}
+<footer class="site-footer">
+  <div class="container">
+{{ partial "footer-home.html" . }}
+</footer>
+{{ else }}
+<footer class="site-footer">
+{{ partial "footer-simple.html" . }}
+</footer>
+{{ end }}

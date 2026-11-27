@@ -1,0 +1,190 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {{ if .IsHome }}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>信朴 Xomaps · 户外媒体管理系统</title>
+  <meta name="title" content="信朴 Xomaps · 户外媒体管理系统" />
+  {{ else }}
+  <title>{{ .Title }}</title>
+  {{ end }}
+  <meta name="description" content="{{ .Description }}" />
+  <meta name="baidu-site-verification" content="codeva-Q6H2EAUeA7" />
+  <meta name="keywords" content="{{ delimit .Params.keywords ", " }}" />
+  <meta name="author" content="信朴科技" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{{ if .IsHome }}https://www.omaps.cn/{{ else if not .IsPage }}https://www.omaps.cn/insights/{{ else }}{{ .Permalink }}{{ end }}" />
+
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:url" content="{{ if .IsHome }}https://www.omaps.cn/{{ else if not .IsPage }}https://www.omaps.cn/insights/{{ else }}{{ .Permalink }}{{ end }}" />
+  <meta property="og:site_name" content="信朴 Xomaps" />
+  <meta property="og:title" content="{{ with .Params.ogtitle }}{{ . }}{{ else }}{{ .Title }}{{ end }}" />
+  <meta property="og:description" content="{{ with .Params.ogdescription }}{{ . }}{{ else }}{{ .Description }}{{ end }}" />
+  <meta property="og:image" content="https://www.omaps.cn/images/og-cover.jpg" />
+  {{ if .IsHome }}
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  {{ end }}
+  <meta property="og:locale" content="zh_CN" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ with .Params.ogtitle }}{{ . }}{{ else }}{{ .Title }}{{ end }}" />
+  <meta name="twitter:description" content="{{ with .Params.ogdescription }}{{ . }}{{ else }}{{ .Description }}{{ end }}" />
+  {{ if .IsHome }}
+  <meta name="twitter:image" content="https://www.omaps.cn/images/twitter-cover.jpg" />
+  {{ end }}
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#ff8000" />
+  <link rel="stylesheet" href="/css/style.css" />
+  {{ if .Section }}
+  <link rel="stylesheet" href="/css/article.css" />
+  {{ end }}
+  {{ if .IsHome }}
+  <noscript><style>.faq-a { display: block !important; }</style></noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "信朴 Xomaps 户外媒体管理系统",
+    "alternateName": ["Xomaps", "Outdoor Media Asset Planning System"],
+    "url": "https://www.omaps.cn",
+    "downloadUrl": "https://www.pgyer.com/xomaps-adm",
+    "description": "户外媒体点位资源、订单投放、派单上刊、完工报告全流程数字化管理平台，支持本地部署与 SaaS 订阅。",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CNY"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "广州信朴科技有限公司",
+      "url": "https://www.omaps.cn",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "广州市天河区金穗路1号邦华广场",
+        "addressLocality": "广州市",
+        "addressRegion": "广东省",
+        "postalCode": "510623",
+        "addressCountry": "CN"
+      }
+    }
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "我们做的是电梯框架 / 灯箱 / 车身 / 大牌，Xomaps 都支持吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "支持。系统以点位为核心抽象，每个点位可挂位置、媒体类型、规格、所属小区或商圈、当前状态等属性。电梯框架、社区灯箱、道闸、候车亭、公交车身、户外大牌都可以按自有分类体系录入，一家公司同时经营多种媒体类型也没有冲突。" }
+      },
+      {
+        "@type": "Question",
+        "name": "现在点位和排期都在 Excel 里，能直接导入吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "可以。系统提供标准导入模板，点位、客户、历史订单与排期都能批量导入。导入前会做校验，重复的点位编码、冲突的排期会先提示，不会把脏数据写进系统。历史数据量较大的客户，实施阶段会协助清洗后再导入。" }
+      },
+      {
+        "@type": "Question",
+        "name": "上刊师傅年纪偏大、不太会用智能手机，推得动吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "可以。现场上刊用手机端 App，任务以列表形式下发，点进去就是签到、拍照、提交三步，现场操作平均 1 分钟内完成；商机与客户跟进另有微信小程序，扫码即用。上线首周提供现场或远程带教，确保每位师傅独立完成一次完整上刊。" }
+      },
+      {
+        "@type": "Question",
+        "name": "微信小程序和手机端 App 分别负责什么？",
+        "acceptedAnswer": { "@type": "Answer", "text": "微信小程序是销售助手，解决商机与客户跟进；手机端 App 面向现场作业，解决派单上刊与拍照上传。两端共用同一份数据，后台看到的结果完全一致，按角色选用即可。" }
+      },
+      {
+        "@type": "Question",
+        "name": "完工报告能按我们自己的模板出吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "能。报告模板可配置封面、版式、点位照片排布方式与说明字段，一次点击生成 PPT 报告，同时打包导出原图压缩包，直接发给客户。模板可以按客户或项目分别保存，下次复用。" }
+      },
+      {
+        "@type": "Question",
+        "name": "SaaS 版和本地部署版的功能有差别吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "核心业务功能一致，差别在交付形态。SaaS 版开箱即用、自动升级、按年订阅；本地部署版部署在自有或独享服务器上，支持深度定制与二次开发，按授权加年度维保计费。选哪个主要取决于数据合规要求，而不是功能多少。" }
+      },
+      {
+        "@type": "Question",
+        "name": "点位数据和客户资料放在 SaaS 上安全吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "传输全程 HTTPS，存储层做多租户隔离、敏感字段加密，按角色控制数据可见范围，关键操作留有审计日志。若合规要求数据不能出内网，可选本地部署版，点位数据完全留在自主掌控的服务器上。" }
+      },
+      {
+        "@type": "Question",
+        "name": "从签约到真正用起来要多久？",
+        "acceptedAnswer": { "@type": "Answer", "text": "SaaS 版通常 1 到 2 周完成初始化、数据导入与培训，即可投入试用。本地部署版需要实施部署、迁移数据，一般 4 到 8 周，具体取决于数据量级与定制范围。服务器可以自备，也可以选一站式全包交付，由我们代办服务器、域名、SSL 证书与域名解析，无需自备 IT 基础设施。签合同前会提供明确的实施排期。" }
+      },
+      {
+        "@type": "Question",
+        "name": "我们的业务流程比较特殊，系统能改吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "标准流程选点、锁点、派单上刊、完工报告覆盖绝大多数场景。审批流、自定义字段、报表口径可以按企业习惯配置；超出配置范围的个性化需求，本地部署版支持二次开发对接。" }
+      },
+      {
+        "@type": "Question",
+        "name": "怎么收费？有隐形费用吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "按席位数、点位规模与启用模块组合计价：SaaS 按年订阅，本地部署为一次授权加年度维保。报价前先做一轮业务调研，出方案和报价单，列明包含的实施、培训与维保内容，不做隐形收费。" }
+      },
+      {
+        "@type": "Question",
+        "name": "地图只是展示，还是能在地图上直接操作？",
+        "acceptedAnswer": { "@type": "Answer", "text": "能操作。点位按经纬度在地图上落位，地图视图做聚合展示；可用点位按区域、规格、档期筛选后在地图上高亮，还可以框选一个片区，直接查看范围内的小区数量与点位数量。点位包内的点位也能成组上地图，给客户讲方案时不必只对着编号表。" }
+      },
+      {
+        "@type": "Question",
+        "name": "现场没信号、地下车库拍不了照怎么办？",
+        "acceptedAnswer": { "@type": "Answer", "text": "断网可以作业。照片先暂存在手机本地并标记为待上传，网络恢复后自动补传；上传失败的会单独标记，可一键重试，不会因为没信号丢掉当期照片。" }
+      },
+      {
+        "@type": "Question",
+        "name": "LED 数字屏、程序化投放支持吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "Xomaps 的核心是静态平面媒体，如大牌、候车亭、灯箱、道闸、墙体这类需要现场张贴、拍照留证的形态。LED 数字屏纳入同一套点位、排期与订单体系，并支持把全量轮播清单按版本整体下发到租户自接的播控系统（播控衔接层）；但系统不做播控引擎与屏体播放控制，屏和播控账号仍在租户手里，播放凭证现阶段以人工验收兜底，也不含 SSP / DSP 程序化交易对接。以程序化售卖为主营的公司，仍不适合把 Xomaps 当作主系统。" }
+      },
+      {
+        "@type": "Question",
+        "name": "财务和提成能做到什么程度？",
+        "acceptedAnswer": { "@type": "Answer", "text": "不只对账。系统包含请款（带到期日与逾期标记）、到款登记、划拨审核、发票管理、提成核算、客户对账、会计期间开闭与年度结转，以及按客户的欠款风控视图。提成按划拨金额乘提成比例自动计算，关联合同与销售人员，到款后结算。边界是单级比例提成，多级阶梯、跨项目拆账、集团合并报表属于定制范围，可通过开放接口与原有财务系统对接。" }
+      },
+      {
+        "@type": "Question",
+        "name": "能和现有的财务、OA 系统对接吗？",
+        "acceptedAnswer": { "@type": "Answer", "text": "可以。系统提供标准 OpenAPI 接口，可按需对接财务、OA、ERP 或自建中台；同时提供 MCP 协议接入，AI 客户端可直接调用点位、排期等查询能力。本地部署版可按企业内网规范调整接口与鉴权方式。" }
+      }
+    ]
+  }
+  </script>
+  {{ end }}
+  {{ if .IsPage }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ .Title }},
+    "description": {{ .Description }},
+    "datePublished": "{{ .Date.Format "2006-01-02" }}",
+    "dateModified": "{{ .Date.Format "2006-01-02" }}",
+    "author": { "@type": "Organization", "name": "信朴科技", "url": "https://www.omaps.cn" },
+    "publisher": { "@type": "Organization", "name": "信朴 Xomaps", "url": "https://www.omaps.cn" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ .Permalink }}" },
+    "inLanguage": "zh-CN"
+  }
+  </script>
+  {{ end }}
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?91d1ed7b8e9f57cc6d6af12e7feed6ed";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</head>

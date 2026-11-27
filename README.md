@@ -1,25 +1,43 @@
-# omaps.cn 官网（www.omaps.cn 静态站）
+# omaps.cn 官网（www.omaps.cn，Hugo 静态站）
 
 > 2026-11-22 自 deploy-alone 仓迁出，改为仓库托管、发布走托管服务（GitHub Pages），不再由单机版服务器 nginx 对外服务。
 > 迁出前最后版本：deploy-alone f7e3d6c（含品牌 square-clean、insights 五篇、news 快照）。
+> 2026-11-26 迁移为 Hugo 工程：URL 零变化（6 个页面路径与旧站逐一等价，验收 diff 除 1 处登记的文案统一外全 PASS）。
 
 ## 仓库内容
 
 | 路径 | 说明 |
 |---|---|
-| `index.html` `css/` `js/` `images/` `insights/` | 官网静态站本体（原样迁入，未改内容） |
-| `CNAME` | GitHub Pages 自定义域名 www.omaps.cn |
+| `hugo.toml` | Hugo 站点配置（uglyURLs 文件式输出，保持 `/insights/<slug>.html` 路径不变） |
+| `content/` | 页面内容（`_index.md` 首页、`insights/*.md` 四篇文章、`insights/_index.md` 列表页） |
+| `layouts/` | 模板（partial 化的 head/header/footer/side-tools 等，首页与文章页分调度） |
+| `static/` | 原静态资源原样迁入（css/js/images/favicon/CNAME/robots/sitemap/webmanifest） |
 | `wrangler.jsonc` `scripts/deploy-cf.sh` | Cloudflare Workers 部署（worker 名 omaps-cn，见下节） |
+| `.github/workflows/` | pages.yml（GitHub Pages）+ deploy-cf.yml（CF Workers），均从 Hugo 构建 |
 
-站内品牌署名已全量为「信朴 / Xomaps」（2026-11-23 复核，html/css/js 无「麦朴/麦扑/Xinpure」残留）；`dist/` 为旧快照（gitignore），下次部署由 `scripts/deploy-cf.sh` 的 rsync --delete 重建。
+本地构建：`hugo --gc -d dist`（hugo >= 0.170.1，`brew install hugo`）。
+
+## Hugo 迁移要点（2026-11-26）
+
+- URL 保持文件式：`uglyURLs = true` + `[permalinks] insights = "/insights/:filename"`；列表页 front matter `url: "/insights/index.html"` 固定路径。
+- `disableKinds` 关掉 taxonomy/term/rss/sitemap/robotsTXT——sitemap.xml 与 robots.txt 用 static/ 下的自有版本。
+- `disableHugoGeneratorInject = true` 关掉 Hugo 注入的 generator meta，产物与旧站字节级对齐。
+- 关键词 meta 用 `{{ delimit .Params.keywords ", " }}` 渲染（直接输出 `.Params.keywords` 会带方括号）。
+- 保真验收：6 页 HTML 与旧站逐 token diff 全 PASS（脚本 /tmp/hugo-migrate-verify.py 口径：URL 归一化后比 head meta 与 body 文本/属性）。唯一登记差异：悬浮栏 App 二维码副标题由「点击前往下载页」统一为首页口径「派单上刊，拍照上传」。
 
 ## 每日热点（news）已下线（2026-11-23）
 
 首页「每日热点 Daily News」板块、页脚与洞察页入口、`news/` 栏目页、抓取脚本 `tools/news/` 已全部移除，sitemap 中对应条目同步删除。此前 cron 与 GitHub Actions 两种跑法均不再需要；如未来要恢复栏目，从 git 历史找回 `news/`、`tools/news/` 即可。
 
-## Cloudflare Workers 部署（2026-11-22 加）
+## Cloudflare Workers 部署（2026-11-22 加，2026-11-26 改 Hugo 构建）
 
-与 xomaps.com 仓同套路：`bash scripts/deploy-cf.sh`（rsync 站点文件到 dist/ 快照后 wrangler deploy），worker 名 **omaps-cn**（CF worker 名不允许带点）。
+与 xomaps.com 仓同套路：`bash scripts/deploy-cf.sh`（hugo 构建出 dist/ 后 wrangler deploy），worker 名 **omaps-cn**（CF worker 名不允许带点）。push main 也会由 deploy-cf.yml 自动部署。
+
+## GitHub Pages（2026-11-26 起 Actions 模式）
+
+- 发布链路：push main → pages.yml → hugo 构建 dist/ → deploy-pages 上传发布。
+- ⚠️ **切换前置**：仓库 Settings → Pages → Source 必须先改为 **GitHub Actions**（在删除根目录旧 HTML 的提交推送之前完成），否则 Pages 仍按「从分支发布」找根目录 index.html 会 404。
+- CNAME 已随 static/ 构建（static/CNAME → dist/CNAME），自定义域名 www.omaps.cn 不受影响。
 
 - 当前可访问：https://omaps-cn.jokeway.workers.dev
 - `not_found_handling: single-page-application` 与原 nginx `try_files … /index.html` 兜底行为一致

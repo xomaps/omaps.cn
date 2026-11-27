@@ -1,0 +1,28 @@
+{{ define "main" }}
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-badge">行业洞察 <span class="en">Insights</span></span>
+        <h1>户外媒体经营与数字化实践</h1>
+        <p>点位管理、上刊执行、完工报告与选型决策的实操经验，写给正在管几千个点位的你。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="post-list">
+        {{ range .Pages.ByWeight }}
+        <a class="post-card" href="{{ .RelPermalink }}">
+          <div class="post-card-body">
+            <span class="tag">{{ .Params.category }}</span>
+            <h2>{{ .Title }}</h2>
+            <p>{{ .Params.excerpt }}</p>
+            <div class="post-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time><span class="read-more">阅读全文 &rarr;</span></div>
+          </div>
+        </a>
+        {{ end }}
+        </div>
+      </div>
+    </section>
+  </main>
+{{ end }}
