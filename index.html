@@ -43,6 +43,7 @@
     "name": "信朴 Xomaps 户外媒体管理系统",
     "alternateName": ["Xomaps", "Outdoor Media Asset Planning System"],
     "url": "https://www.omaps.cn",
+    "downloadUrl": "https://www.pgyer.com/xomaps-adm",
     "description": "户外媒体点位资源、订单投放、派单上刊、完工报告全流程数字化管理平台，支持本地部署与 SaaS 订阅。",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
@@ -57,7 +58,7 @@
       "url": "https://www.omaps.cn",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "广州市天河区金穗路1号邦华广场",
+        "streetAddress": "广州市天河区金穗路1号邦华广场5楼",
         "addressLocality": "广州市",
         "addressRegion": "广东省",
         "postalCode": "510623",
@@ -85,12 +86,12 @@
       {
         "@type": "Question",
         "name": "上刊师傅年纪偏大、不太会用智能手机，推得动吗？",
-        "acceptedAnswer": { "@type": "Answer", "text": "可以。上刊人员用微信小程序即可，不需要下载安装 App；任务以列表形式下发，点进去就是签到、拍照、提交三步，现场操作平均 1 分钟内完成。上线首周提供现场或远程带教，确保每位师傅独立完成一次完整上刊。" }
+        "acceptedAnswer": { "@type": "Answer", "text": "可以。现场上刊用手机端 App，任务以列表形式下发，点进去就是签到、拍照、提交三步，现场操作平均 1 分钟内完成；商机与客户跟进另有微信小程序，扫码即用。上线首周提供现场或远程带教，确保每位师傅独立完成一次完整上刊。" }
       },
       {
         "@type": "Question",
-        "name": "小程序和独立 App 必须都用吗？",
-        "acceptedAnswer": { "@type": "Answer", "text": "不必二选一，也不必都用。日常上刊用小程序最轻；需要离线作业、大批量拍照上传或更完整的功能时用独立 App。两端共用同一份数据，后台看到的结果完全一致。" }
+        "name": "微信小程序和手机端 App 分别负责什么？",
+        "acceptedAnswer": { "@type": "Answer", "text": "微信小程序是销售助手，解决商机与客户跟进；手机端 App 面向现场作业，解决派单上刊与拍照上传。两端共用同一份数据，后台看到的结果完全一致，按角色选用即可。" }
       },
       {
         "@type": "Question",
@@ -638,7 +639,7 @@
           <div class="mobile-copy">
             <span class="section-badge">移动端作业 <span class="en">Mobile</span></span>
             <h2>上刊拍照上图，现场作业真实可溯</h2>
-            <p>上刊人员在现场用微信小程序或独立 App 接收任务、定位签到、拍照上传，关键环节自动留痕，后台实时可见。地下车库、电梯厅这些常年没信号的地方，也照样能拍完再传。</p>
+            <p>上刊人员在现场用手机端 App 接收任务、定位签到、拍照上传，关键环节自动留痕，后台实时可见。地下车库、电梯厅这些常年没信号的地方，也照样能拍完再传。</p>
             <ul class="mobile-features">
               <li><strong>任务实时接收</strong> — 派单任务即时推送，不错过任何上刊指令</li>
               <li><strong>GPS 定位签到</strong> — 到点签到，确保作业位置真实</li>
@@ -648,24 +649,20 @@
             </ul>
             <div class="mobile-entries">
               <div class="mobile-entry">
-                <img src="./images/wechat-app-image.png" alt="微信小程序扫码入口" width="88" height="88" loading="lazy" />
+                <img src="./images/wechat-app-image.png" alt="微信小程序（销售助手）扫码入口" width="88" height="88" loading="lazy" />
                 <div class="mobile-entry-body">
                   <strong>微信小程序</strong>
-                  <span>扫码即用，无需下载</span>
+                  <span>商机跟进</span>
                 </div>
               </div>
-              <div class="mobile-entry">
-                <div class="mobile-entry-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                    <line x1="12" y1="18" x2="12.01" y2="18" />
-                  </svg>
-                </div>
+              <a class="mobile-entry mobile-entry-link" href="https://www.pgyer.com/xomaps-adm" target="_blank" rel="noopener noreferrer" aria-label="下载手机端 App：扫码或前往下载页">
+                <img class="app-qr" src="./images/app-download-qrcode.png" alt="手机端 App 下载二维码：扫码下载安装" width="120" height="120" />
                 <div class="mobile-entry-body">
-                  <strong>独立 App</strong>
-                  <span>独立客户端，作业数据实时同步</span>
+                  <strong>手机端 App</strong>
+                  <span>派单上刊拍照上传</span>
+                  <span class="mobile-entry-cta">扫码下载安装</span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
           <div class="mobile-visual">
@@ -752,7 +749,7 @@
               <li>点位管理与地图选点</li>
               <li>订单投放与排期日历</li>
               <li>派单上刊与完工报告</li>
-              <li>微信小程序移动端</li>
+              <li>微信小程序（销售助手）</li>
               <li>数据看板（基础指标）</li>
               <li>支持 14 天全功能试用</li>
             </ul>
@@ -890,7 +887,7 @@
             <h3>照片不再躺在微信群里，每一张都对得上点位</h3>
             <dl class="case-flow">
               <div><dt>原来的问题</dt><dd>上刊师傅拍完照发在微信群里，很快被刷屏淹没，图片过期还下载不了；月底做报告才发现缺图，只能让师傅再跑一趟。客户还会质疑"这张是不是当期拍的"。</dd></div>
-              <div><dt>上线做法</dt><dd>派单下发到责任人，上刊人员在小程序接收任务，到点 GPS 签到，拍照自动叠加时间与地点水印，照片按"点位 + 订单 + 时间"自动归集，后台实时可见。</dd></div>
+              <div><dt>上线做法</dt><dd>派单下发到责任人，上刊人员在手机端 App 接收任务，到点 GPS 签到，拍照自动叠加时间与地点水印，照片按"点位 + 订单 + 时间"自动归集，后台实时可见。</dd></div>
               <div><dt>上线成效</dt><dd>照片回收不再靠人工催办；验收时每张照片都能对得上点位、时间与作业人员。</dd></div>
             </dl>
           </article>
@@ -947,17 +944,17 @@
               <span class="faq-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-a" id="faq-a3" role="region">
-              <p>推得动，关键是入口要足够轻。上刊人员用微信小程序即可，不需要下载安装 App；任务以列表形式下发，点进去就是"签到 — 拍照 — 提交"三步，现场操作平均 1 分钟内完成。上线首周我们提供现场或远程带教，确保每位师傅独立完成一次完整上刊。</p>
+              <p>推得动，关键是入口要足够轻。现场上刊用手机端 App，任务以列表形式下发，点进去就是"签到 — 拍照 — 提交"三步，现场操作平均 1 分钟内完成；商机与客户跟进另有微信小程序，扫码即用。上线首周我们提供现场或远程带教，确保每位师傅独立完成一次完整上刊。</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4">
-              <span>小程序和独立 App 必须都用吗？</span>
+              <span>微信小程序和手机端 App 分别负责什么？</span>
               <span class="faq-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-a" id="faq-a4" role="region">
-              <p>不必二选一，也不必都用。日常上刊用小程序最轻；需要离线作业、大批量拍照上传或更完整的功能时用独立 App。两端共用同一份数据，后台看到的结果完全一致，团队可以混合使用。</p>
+              <p>微信小程序是销售助手，解决商机与客户跟进；手机端 App 面向现场作业，解决派单上刊与拍照上传。两端共用同一份数据，后台看到的结果完全一致，团队按角色选用即可。</p>
             </div>
           </div>
 
@@ -1090,7 +1087,7 @@
         <div class="contact-grid">
           <div class="contact-item"><span>商务咨询</span><strong>冯小姐：189 2610 8189</strong></div>
           <div class="contact-item"><span>商务邮箱</span><strong>sales@xomaps.com</strong></div>
-          <div class="contact-item"><span>公司地址</span><strong>广州市天河区金穗路 1 号邦华广场</strong></div>
+          <div class="contact-item"><span>公司地址</span><strong>广州市天河区金穗路1号邦华广场5楼</strong></div>
           <div class="contact-item contact-item--qr">
             <span>企业微信</span>
             <img class="contact-qr" src="./images/wecom-qrcode.png" alt="企业微信二维码：扫码添加商务顾问" width="140" height="140" loading="lazy" />
@@ -1147,7 +1144,7 @@
           <h3>联系</h3>
           <a href="tel:18926108189">商务咨询：189 2610 8189</a>
           <a href="mailto:sales@xomaps.com">sales@xomaps.com</a>
-          <span class="footer-address">广州市天河区金穗路 1 号邦华广场</span>
+          <span class="footer-address">广州市天河区金穗路1号邦华广场5楼</span>
         </div>
       </div>
 
@@ -1166,12 +1163,21 @@
       <span class="tip">在线咨询</span>
     </a>
 
-    <a class="side-tool wechat-btn" href="javascript:void(0)" aria-label="小程序二维码">
+    <a class="side-tool app-btn" href="https://www.pgyer.com/xomaps-adm" target="_blank" rel="noopener noreferrer" aria-label="下载手机端 App">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
+      <div class="qr-popup">
+        <div class="qr-img"><img src="./images/app-download-qrcode.png" alt="手机端 App 下载二维码" /></div>
+        <div class="qr-label">扫码下载安装</div>
+        <div class="qr-sub">派单上刊，拍照上传</div>
+      </div>
+    </a>
+
+    <a class="side-tool wechat-btn" href="javascript:void(0)" aria-label="销售助手小程序二维码">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 3C4.9 3 2 5.5 2 8.6c0 1.8 1 3.4 2.5 4.4l-.6 2 2.2-1.1c.6.2 1.2.3 1.9.3-.1-.4-.1-.8-.1-1.2 0-3 2.9-5.4 6.4-5.4h.4C14 5.1 11.5 3 8.5 3zM6.4 6.3c.4 0 .8.3.8.8s-.4.8-.8.8-.8-.4-.8-.8.4-.8.8-.8zm4.2 0c.4 0 .8.3.8.8s-.4.8-.8.8-.8-.4-.8-.8.4-.8.8-.8zM14.5 9c-3 0-5.5 2.1-5.5 4.8s2.5 4.8 5.5 4.8c.6 0 1.2-.1 1.7-.3l2 1-.6-1.8c1.5-.9 2.4-2.3 2.4-3.9 0-2.7-2.5-4.6-5.5-4.6zm-1.9 2.7c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7zm3.8 0c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7z"/></svg>
       <div class="qr-popup">
-        <div class="qr-img"><img src="./images/wechat-app-image.png" alt="Xomaps 上刊小程序二维码" loading="lazy" /></div>
-        <div class="qr-label">扫码进入上刊小程序</div>
-        <div class="qr-sub">移动端作业入口</div>
+        <div class="qr-img"><img src="./images/wechat-app-image.png" alt="Xomaps 销售助手小程序二维码" loading="lazy" /></div>
+        <div class="qr-label">扫码进入销售助手小程序</div>
+        <div class="qr-sub">商机销售跟进</div>
       </div>
     </a>
 

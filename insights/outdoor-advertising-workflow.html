@@ -119,7 +119,7 @@
 <p><strong>输入</strong>：已锁定的点位清单、客户确认的上刊画面 <strong>输出</strong>：现场作业记录（照片 + 位置 + 时间）</p>
 <p>具体操作：</p>
 <ol><li><strong>上传画面</strong>：在投放内容里上传本次要上的画面，师傅在手机上能直接看到，避免上错版本。</li><li><strong>设置派单</strong>：定义拍照要求（拍几个角度、要不要全景）、验证权限等。</li><li><strong>指派人员</strong>：把任务派给具体的上刊师傅。</li></ol>
-<p>师傅在现场用微信小程序或 App：接收任务 → 到点 GPS 签到 → 拍照上传 → 上报进度或异常。</p>
+<p>师傅在现场用手机端 App：接收任务 → 到点 GPS 签到 → 拍照上传 → 上报进度或异常。</p>
 <p><strong>关键在两点</strong>：照片拍摄时自动叠加时间和位置水印（防翻拍、防旧图充数）；后台实时可见进度，不用打电话催。</p>
 <hr />
 <h2>第四步：完工报告</h2>
@@ -133,7 +133,7 @@
 <p>真正的收益不是“快”，是<strong>可追溯</strong>：出了问题能查到是谁、在哪一步、什么时候做的。这才是能拿去跟客户、跟内部交代的东西。</p>
 <hr />
 <h2>关于 Xomaps</h2>
-<p>上面这套四步流程，就是 Xomaps 的产品骨架：PC 管理后台处理资源、订单、排期与报告，微信小程序/独立 App 承接现场作业，两端数据实时同步。SaaS 版开箱即用，本地部署版数据自有服务器。</p>
+<p>上面这套四步流程，就是 Xomaps 的产品骨架：PC 管理后台处理资源、订单、排期与报告，手机端 App 承接现场作业，两端数据实时同步。SaaS 版开箱即用，本地部署版数据自有服务器。</p>
 <p>预约演示：<a href="https://www.omaps.cn">www.omaps.cn</a></p>
 <hr />
         </div>
@@ -173,12 +173,21 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       <span class="tip">在线咨询</span>
     </a>
-    <a class="side-tool wechat-btn" href="javascript:void(0)" aria-label="小程序二维码">
+    <a class="side-tool app-btn" href="https://www.pgyer.com/xomaps-adm" target="_blank" rel="noopener noreferrer" aria-label="下载手机端 App">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
+      <div class="qr-popup">
+        <div class="qr-img"><img src="../images/app-download-qrcode.png" alt="手机端 App 下载二维码" /></div>
+        <div class="qr-label">扫码下载安装</div>
+        <div class="qr-sub">点击前往下载页</div>
+      </div>
+    </a>
+
+    <a class="side-tool wechat-btn" href="javascript:void(0)" aria-label="销售助手小程序二维码">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 3C4.9 3 2 5.5 2 8.6c0 1.8 1 3.4 2.5 4.4l-.6 2 2.2-1.1c.6.2 1.2.3 1.9.3-.1-.4-.1-.8-.1-1.2 0-3 2.9-5.4 6.4-5.4h.4C14 5.1 11.5 3 8.5 3zM6.4 6.3c.4 0 .8.3.8.8s-.4.8-.8.8-.8-.4-.8-.8.4-.8.8-.8zm4.2 0c.4 0 .8.3.8.8s-.4.8-.8.8-.8-.4-.8-.8.4-.8.8-.8zM14.5 9c-3 0-5.5 2.1-5.5 4.8s2.5 4.8 5.5 4.8c.6 0 1.2-.1 1.7-.3l2 1-.6-1.8c1.5-.9 2.4-2.3 2.4-3.9 0-2.7-2.5-4.6-5.5-4.6zm-1.9 2.7c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7zm3.8 0c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7z"/></svg>
       <div class="qr-popup">
-        <div class="qr-img"><img src="../images/wechat-app-image.png" alt="Xomaps 上刊小程序二维码" loading="lazy" /></div>
-        <div class="qr-label">扫码进入上刊小程序</div>
-        <div class="qr-sub">移动端作业入口</div>
+        <div class="qr-img"><img src="../images/wechat-app-image.png" alt="Xomaps 销售助手小程序二维码" loading="lazy" /></div>
+        <div class="qr-label">扫码进入销售助手小程序</div>
+        <div class="qr-sub">商机销售跟进</div>
       </div>
     </a>
 
