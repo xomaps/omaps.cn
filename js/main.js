@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
     '.case-card',
     '.cap-card',
     '.flow-strip',
-    '.chat-demo',
     '.faq-item'
   ];
   var revealEls = [];

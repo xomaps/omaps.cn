@@ -7,8 +7,8 @@
 
   <title>信朴 Xomaps · 户外媒体管理系统</title>
   <meta name="title" content="信朴 Xomaps · 户外媒体管理系统" />
-  <meta name="description" content="信朴 Xomaps 户外媒体管理系统：以地图承载点位落位、空位查找与片区圈选，覆盖点位资源、订单投放、派单上刊、完工报告全流程；内置客户商机与销售/采购合同、请款到款开票提成对账、点位覆盖率报表与 AI 销售助理；移动端支持断网拍照、联网补传，静态户外与灯箱、候车亭、道闸、墙体等形态均可管理，支持本地部署与 SaaS 订阅。" />
-  <meta name="keywords" content="户外媒体管理,户外媒体管理系统,户外媒体管理软件,户外广告,户外广告管理系统,户外广告管理平台,广告管理系统,广告订单管理系统,广告安装派单管理后台,点位管理,点位管理系统,点位地图,媒体资源管理,地图选点,地图点位管理,排期管理,外勤巡检,离线上刊,批量导入点位,订单管理,派单上刊,完工报告,客户管理,商机管理,合同管理,请款管理,提成核算,发票管理,客户对账,点位使用率,AI销售助理,开放API,私有化部署,OMAPS源码,Xomaps,omaps,信朴" />
+  <meta name="description" content="信朴 Xomaps 户外媒体管理系统：以地图承载点位落位、空位查找与片区圈选，覆盖点位资源、订单投放、派单上刊、完工报告全流程；内置客户商机与销售/采购合同、请款到款开票提成对账、点位覆盖率报表；移动端支持断网拍照、联网补传，静态户外与灯箱、候车亭、道闸、墙体等形态均可管理，支持本地部署与 SaaS 订阅。" />
+  <meta name="keywords" content="户外媒体管理,户外媒体管理系统,户外媒体管理软件,户外广告,户外广告管理系统,户外广告管理平台,广告管理系统,广告订单管理系统,广告安装派单管理后台,点位管理,点位管理系统,点位地图,媒体资源管理,地图选点,地图点位管理,排期管理,外勤巡检,离线上刊,批量导入点位,订单管理,派单上刊,完工报告,客户管理,商机管理,合同管理,请款管理,提成核算,发票管理,客户对账,点位使用率,开放API,私有化部署,OMAPS源码,Xomaps,omaps,信朴" />
   <meta name="author" content="信朴科技" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.omaps.cn/" />
@@ -17,7 +17,7 @@
   <meta property="og:url" content="https://www.omaps.cn/" />
   <meta property="og:site_name" content="信朴 Xomaps" />
   <meta property="og:title" content="信朴 Xomaps · 户外媒体管理系统" />
-  <meta property="og:description" content="点位资源、订单投放、派单上刊、完工报告全流程数字化，含客户商机合同、财务结算提成、经营报表与 AI 销售助理。" />
+  <meta property="og:description" content="点位资源、订单投放、派单上刊、完工报告全流程数字化，含客户商机合同、财务结算提成、经营报表。" />
   <meta property="og:image" content="https://www.omaps.cn/images/og-cover.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -25,7 +25,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="信朴 Xomaps · 户外媒体管理系统" />
-  <meta name="twitter:description" content="点位资源、订单投放、派单上刊、完工报告全流程数字化，含客户商机合同、财务结算提成、经营报表与 AI 销售助理。" />
+  <meta name="twitter:description" content="点位资源、订单投放、派单上刊、完工报告全流程数字化，含客户商机合同、财务结算提成、经营报表。" />
   <meta name="twitter:image" content="https://www.omaps.cn/images/twitter-cover.jpg" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
@@ -144,11 +144,6 @@
       },
       {
         "@type": "Question",
-        "name": "里面有 AI 吗？能做什么、不能做什么？",
-        "acceptedAnswer": { "@type": "Answer", "text": "内置 Copilot 销售助理（基于 AgentScope），检索自有库中的点位、排期与单价。可查询可用点位、按预算拆点位组合、生成投放方案、把拜访内容转成活动记录、汇总周报月报。不做图像质检，照片是否错刊、遮挡、翻拍仍由时间地点水印、GPS 定位与人工复核判定。" }
-      },
-      {
-        "@type": "Question",
         "name": "能和现有的财务、OA 系统对接吗？",
         "acceptedAnswer": { "@type": "Answer", "text": "可以。系统提供标准 OpenAPI 接口，可按需对接财务、OA、ERP 或自建中台；同时提供 MCP 协议接入，AI 客户端可直接调用点位、排期等查询能力。本地部署版可按企业内网规范调整接口与鉴权方式。" }
       }
@@ -179,7 +174,6 @@
       <nav class="nav" id="nav" aria-label="主导航">
         <a href="#features">产品功能</a>
         <a href="#biz">业务财务</a>
-        <a href="#ai">AI 助理</a>
         <a href="#pricing">价格方案</a>
         <a href="#faq">常见问题</a>
         <a href="#contact">联系我们</a>
@@ -637,51 +631,6 @@
       </div>
     </section>
 
-    <!-- AI -->
-    <section class="section alt" id="ai">
-      <div class="container">
-        <div class="mobile-grid">
-          <div class="mobile-copy">
-            <span class="section-badge">AI Copilot <span class="en">Assistant</span></span>
-            <h2>把「帮我找点位」直接说出来</h2>
-            <p>内置 Copilot 销售助理（基于 AgentScope），检索的是你自己库里的点位、档期和单价，不是通用大模型在猜。销售不必先学会用系统，问一句就能拿到可投组合。</p>
-            <ul class="mobile-features">
-              <li><strong>点位与排期查询</strong> — 说出区域、媒体类型与档期，直接返回可投点位</li>
-              <li><strong>预算拆组合</strong> — 给定预算，按库里真实单价算出几档点位组合</li>
-              <li><strong>投放方案生成</strong> — 一句话出一套点位组合方案，接着就能建点位包下单</li>
-              <li><strong>拜访记录转日志</strong> — 口述一段拜访内容，转成客户活动记录落库</li>
-              <li><strong>周报月报自动汇总</strong> — 按本周拜访、商机进展与投放方案生成工作汇报</li>
-            </ul>
-            <div class="chat-tag-row" style="margin-top: 26px;">
-              <span class="chat-tag">搜索点位</span>
-              <span class="chat-tag">点位详情</span>
-              <span class="chat-tag">城市列表</span>
-              <span class="chat-tag">查询排期</span>
-              <span class="chat-tag">计算预算</span>
-              <span class="chat-tag">生成投放方案</span>
-            </div>
-          </div>
-
-          <div class="ai-visual">
-            <div class="chat-demo">
-              <div class="chat-demo-head">
-                <span class="ai-mark" aria-hidden="true">AI</span>
-                <strong>Copilot 销售助理</strong>
-                <em>AgentScope</em>
-              </div>
-              <p class="bubble user">帮我查北京朝阳区电梯广告的可用点位，预算 30 万</p>
-              <p class="bubble ai">已按「朝阳区 · 电梯框架 · 当期可投」筛选，从点位库取到可用点位后，按预算拆成三档组合：<strong>高覆盖 / 均衡 / 控成本</strong>。每组都附点位清单、档期与单价，点开可以继续调整或直接生成投放方案。</p>
-              <p class="bubble user">客户要写进周报，帮我汇总本周进展</p>
-              <p class="bubble ai">已汇总本周客户拜访、商机进展与在谈投放方案，生成周报初稿，可在工作汇报里继续编辑。</p>
-            </div>
-            <p class="ai-note">
-              能力边界：Copilot 负责找点位、算预算、出方案、写记录。<b>照片是否错刊、遮挡、翻拍，仍由水印、定位与人工复核判定</b>，不做 AI 图像质检。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Mobile -->
     <section class="section" id="mobile">
       <div class="container">
@@ -825,7 +774,7 @@
               <li>专属客户成功对接人</li>
             </ul>
             <a class="btn btn-primary" href="#contact">获取报价</a>
-            <p class="price-sub">点位规模更大可选旗舰版 ¥25,800/年：不限点位、企业微信应用与 AI 能力、优先支持。</p>
+            <p class="price-sub">点位规模更大可选旗舰版 ¥25,800/年：不限点位、企业微信应用、优先支持。</p>
           </article>
 
           <article class="price-card">
@@ -1114,17 +1063,6 @@
           </div>
 
           <div class="faq-item">
-            <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a15">
-              <span>里面有 AI 吗？能做什么、不能做什么？</span>
-              <span class="faq-icon" aria-hidden="true"></span>
-            </button>
-            <div class="faq-a" id="faq-a15" role="region">
-              <p>有内置 Copilot 销售助理（基于 AgentScope），检索的是你自己库里的点位、排期和单价，不是通用模型在编。能做的：按区域、媒体类型、档期查可用点位；按预算拆点位组合；一句话生成投放方案；把口述的拜访内容转成客户活动记录；汇总周报月报。</p>
-              <p>不能做的也要讲明：它不做图像质检。照片是否错刊、遮挡、翻拍，仍由时间地点水印、GPS 定位与人工复核判定。需要系统自动判图的，Xomaps 目前不满足。</p>
-            </div>
-          </div>
-
-          <div class="faq-item">
             <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a16">
               <span>能和现有的财务、OA 系统对接吗？</span>
               <span class="faq-icon" aria-hidden="true"></span>
@@ -1187,7 +1125,6 @@
           <h3>业务与财务</h3>
           <a href="#biz">客户与合同</a>
           <a href="#finance">财务结算</a>
-          <a href="#ai">AI 销售助理</a>
           <a href="#advantages">核心优势</a>
         </nav>
 
