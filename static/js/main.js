@@ -113,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
     '.deploy-card',
     '.bento-card',
     '.contact-item',
-    '.price-card',
     '.case-card',
     '.cap-card',
     '.flow-strip',
