@@ -94,7 +94,7 @@ body { padding-top: 72px; }
 .nav a { color: var(--text-muted); font-weight: 500; font-size: 14px; padding: 8px 12px; border-radius: 8px; transition: color 0.2s ease; white-space: nowrap; }
 .nav a:hover { color: var(--primary); }
 /* 当前页导航项选中态（对齐 xomaps.com 的 .ww-active：品牌色 + 600 字重） */
-.nav a[aria-current="page"] { color: var(--primary); font-weight: 600; }
+.nav a[aria-current="page"], .nav a[aria-current="true"], .nav a.active { color: var(--primary); font-weight: 600; }
 .header-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
 .header-phone {
   display: inline-flex; align-items: center; gap: 8px;

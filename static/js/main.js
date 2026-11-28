@@ -288,3 +288,27 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   requestAnimationFrame(step);
 })();
+
+// 首页导航 scrollspy：滚动到对应区块时高亮菜单项（对齐 xomaps.com 导航选中态体验）
+(function () {
+  var navLinks = document.querySelectorAll('.nav a[href^="#"]');
+  if (!navLinks.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  navLinks.forEach(function (a) {
+    var id = (a.getAttribute('href') || '').slice(1);
+    if (id && document.getElementById(id)) map[id] = a;
+  });
+  var ids = Object.keys(map);
+  if (!ids.length) return;
+  var visible = {};
+  function refresh() {
+    var current = ids.filter(function (id) { return visible[id]; })[0] || null;
+    navLinks.forEach(function (a) { a.classList.remove('active'); a.removeAttribute('aria-current'); });
+    if (current) { map[current].classList.add('active'); map[current].setAttribute('aria-current', 'true'); }
+  }
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { visible[en.target.id] = en.isIntersecting; });
+    refresh();
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  ids.forEach(function (id) { spy.observe(document.getElementById(id)); });
+})();
