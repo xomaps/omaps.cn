@@ -2,6 +2,19 @@
 <html lang="zh-CN">
 {{ partial "head.html" . }}
 <body>
+  {{ if .IsHome }}
+  <div id="page-loader" aria-hidden="true">
+    <div class="loader-bg-blob"></div>
+    <div class="loader-inner">
+      <div class="loader-logo"><img src="/images/logo-mark.png" alt="信朴 Xomaps"></div>
+      <div class="loader-slogan">户外媒体点位管理系统</div>
+      <div class="loader-brand">信朴 Xomaps</div>
+      <div class="loader-progress"><div class="bar"></div></div>
+      <div class="loader-percent"><span class="num">0</span> %</div>
+    </div>
+  </div>
+  <noscript><style>#page-loader{display:none}</style></noscript>
+  {{ end }}
   <a class="skip-link" href="#main">跳到主要内容</a>
 
 {{ partial "header.html" . }}

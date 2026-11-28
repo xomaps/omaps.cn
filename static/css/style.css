@@ -93,6 +93,8 @@ body { padding-top: 72px; }
 .nav { display: flex; gap: 4px; margin: 0 auto; }
 .nav a { color: var(--text-muted); font-weight: 500; font-size: 14px; padding: 8px 12px; border-radius: 8px; transition: color 0.2s ease; white-space: nowrap; }
 .nav a:hover { color: var(--primary); }
+/* 当前页导航项选中态（对齐 xomaps.com 的 .ww-active：品牌色 + 600 字重） */
+.nav a[aria-current="page"] { color: var(--primary); font-weight: 600; }
 .header-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
 .header-phone {
   display: inline-flex; align-items: center; gap: 8px;
@@ -705,3 +707,19 @@ body { padding-top: 72px; }
 @media (prefers-reduced-motion: reduce) {
   .side-tool.consult-btn .ring { animation: none; }
 }
+
+/* ===== 全屏加载动画（对齐 xomaps.com 版式，品牌橙配色） ===== */
+#page-loader{position:fixed;inset:0;z-index:999999;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,#fffdf9 0%,#fff4eb 45%,#ffffff 100%);transition:opacity .65s ease,visibility .65s ease}
+#page-loader.done{opacity:0;visibility:hidden;pointer-events:none}
+#page-loader .loader-bg-blob{position:absolute;top:50%;left:50%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(255,128,0,.22) 0%,rgba(255,128,0,.08) 45%,transparent 65%);transform:translate(-50%,-50%);animation:loaderBlob 5.5s ease-in-out infinite}
+@keyframes loaderBlob{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.9}50%{transform:translate(-50%,-50%) scale(1.25);opacity:.6}}
+#page-loader .loader-inner{text-align:center;color:var(--ink);position:relative;z-index:2;padding:0 24px}
+#page-loader .loader-logo img{height:88px;margin:0 auto 22px;animation:loaderPulse 2.2s ease-in-out infinite}
+@keyframes loaderPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:.85}}
+#page-loader .loader-slogan{font-size:20px;letter-spacing:.26em;color:rgba(10,14,26,.5);margin-bottom:12px}
+#page-loader .loader-brand{font-size:44px;font-weight:800;letter-spacing:.05em;margin-bottom:40px;color:var(--ink)}
+#page-loader .loader-progress{width:min(340px,72vw);height:2px;background:rgba(10,14,26,.12);border-radius:2px;margin:0 auto 16px;overflow:hidden}
+#page-loader .loader-progress .bar{height:100%;width:0;border-radius:2px;background:linear-gradient(90deg,#ff8000,#ffb84d,#ff8000);background-size:200% 100%;animation:loaderBar 1.6s linear infinite;transition:width .12s linear}
+@keyframes loaderBar{0%{background-position:0 0}100%{background-position:200% 0}}
+#page-loader .loader-percent{font-size:12px;color:rgba(10,14,26,.5);letter-spacing:.22em;font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion: reduce){#page-loader{display:none}}

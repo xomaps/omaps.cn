@@ -264,3 +264,27 @@ document.addEventListener('DOMContentLoaded', function () {
     setFaq(faqItems[0], true);
   }
 });
+
+// 全屏加载动画（对齐 xomaps.com；sessionStorage 记忆，同会话再访问走 350ms 快速淡出）
+(function () {
+  var loader = document.getElementById('page-loader');
+  if (!loader) return;
+  var bar = loader.querySelector('.bar');
+  var num = loader.querySelector('.num');
+  var seen = false;
+  try { seen = sessionStorage.getItem('xomaps-loader-seen') === '1'; } catch (e) {}
+  var duration = seen ? 350 : 1500;
+  var start = performance.now();
+  function step() {
+    var elapsed = performance.now() - start;
+    var progress = Math.min((elapsed / duration) * 100, 100);
+    bar.style.width = progress + '%';
+    num.textContent = Math.floor(progress);
+    if (progress < 100) { requestAnimationFrame(step); }
+    else {
+      setTimeout(function () { loader.classList.add('done'); }, 200);
+      try { sessionStorage.setItem('xomaps-loader-seen', '1'); } catch (e) {}
+    }
+  }
+  requestAnimationFrame(step);
+})();
